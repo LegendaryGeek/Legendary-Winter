@@ -1,0 +1,10 @@
+{ 
+  "forge_marker": 1,
+  "defaults": {
+    "model": "wintercraft:fakesnow"
+  },
+ "variants": {
+    "normal": [{"model": "wintercraft:fakesnow"}],
+    "inventory": [{"model": "wintercraft:fakesnow"}]
+    }
+}
