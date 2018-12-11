@@ -1,4 +1,4 @@
-package com.geek.wintercraft.blocks;
+package com.geek.winter.blocks;
 
 import java.util.Random;
 
@@ -7,7 +7,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.world.gen.*;
 
 public class OreSnow extends Block{
 

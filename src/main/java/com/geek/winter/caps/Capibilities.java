@@ -1,4 +1,4 @@
-package com.geek.wintercraft.caps;
+package com.geek.winter.caps;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;

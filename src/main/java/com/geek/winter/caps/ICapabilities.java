@@ -1,4 +1,4 @@
-package com.geek.wintercraft.caps;
+package com.geek.winter.caps;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;

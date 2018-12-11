@@ -1,6 +1,6 @@
-package com.geek.wintercraft.util;
+package com.geek.winter.util;
 
-import com.geek.wintercraft.WinterCraft;
+import com.geek.winter.WinterCraft;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.fml.common.Mod;

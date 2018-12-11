@@ -1,4 +1,4 @@
-package com.geek.wintercraft.blocks;
+package com.geek.winter.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

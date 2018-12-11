@@ -1,6 +1,6 @@
-package com.geek.wintercraft.proxy;
+package com.geek.winter.proxy;
 
-import com.geek.wintercraft.init.FluidsRegistry;
+import com.geek.winter.init.FluidsRegistry;
 
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

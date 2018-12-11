@@ -1,11 +1,9 @@
-package com.geek.wintercraft.events;
+package com.geek.winter.events;
 
-import com.geek.wintercraft.WinterCraft;
-import com.geek.wintercraft.blocks.*;
-import com.geek.wintercraft.init.*;
-import com.geek.wintercraft.items.FakeSnowBallItem;
-
-
+import com.geek.winter.WinterCraft;
+import com.geek.winter.blocks.*;
+import com.geek.winter.init.*;
+import com.geek.winter.items.FakeSnowBallItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

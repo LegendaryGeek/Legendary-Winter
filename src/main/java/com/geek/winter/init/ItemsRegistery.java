@@ -1,4 +1,4 @@
-package com.geek.wintercraft.init;
+package com.geek.winter.init;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;

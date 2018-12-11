@@ -1,4 +1,4 @@
-package com.geek.wintercraft.proxy;
+package com.geek.winter.proxy;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

@@ -1,6 +1,6 @@
-package com.geek.wintercraft.init;
+package com.geek.winter.init;
 
-import com.geek.wintercraft.WinterCraft;
+import com.geek.winter.WinterCraft;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;

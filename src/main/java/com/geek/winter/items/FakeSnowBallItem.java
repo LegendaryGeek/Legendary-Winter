@@ -1,4 +1,4 @@
-package com.geek.wintercraft.items;
+package com.geek.winter.items;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

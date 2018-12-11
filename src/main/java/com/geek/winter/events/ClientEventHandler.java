@@ -1,10 +1,10 @@
-package com.geek.wintercraft.events;
+package com.geek.winter.events;
 
-import com.geek.wintercraft.WinterCraft;
-import com.geek.wintercraft.fluids.FluidStateMapper;
-import com.geek.wintercraft.init.BlocksRegistry;
-import com.geek.wintercraft.init.FluidsRegistry;
-import com.geek.wintercraft.init.ItemsRegistery;
+import com.geek.winter.WinterCraft;
+import com.geek.winter.fluids.FluidStateMapper;
+import com.geek.winter.init.BlocksRegistry;
+import com.geek.winter.init.FluidsRegistry;
+import com.geek.winter.init.ItemsRegistery;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;

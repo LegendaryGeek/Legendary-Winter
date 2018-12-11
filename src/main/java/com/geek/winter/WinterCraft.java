@@ -1,8 +1,8 @@
-package com.geek.wintercraft;
+package com.geek.winter;
 
 import org.apache.logging.log4j.Logger;
 
-import com.geek.wintercraft.proxy.Proxy;
+import com.geek.winter.proxy.Proxy;
 
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;

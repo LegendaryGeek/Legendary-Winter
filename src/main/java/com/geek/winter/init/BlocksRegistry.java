@@ -1,8 +1,8 @@
-package com.geek.wintercraft.init;
+package com.geek.winter.init;
 
-import com.geek.wintercraft.WinterCraft;
-import com.geek.wintercraft.blocks.FakeSnow;
-import com.geek.wintercraft.blocks.OreSnow;
+import com.geek.winter.WinterCraft;
+import com.geek.winter.blocks.FakeSnow;
+import com.geek.winter.blocks.OreSnow;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;

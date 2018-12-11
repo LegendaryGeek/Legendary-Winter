@@ -1,4 +1,4 @@
-package com.geek.wintercraft.fluids;
+package com.geek.winter.fluids;
 
 import javax.annotation.Nonnull;
 
