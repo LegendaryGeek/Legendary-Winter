@@ -11,9 +11,6 @@ public class FakeSnow extends Block {
 		//this.setRegistryName(WinterCraft.MODID + "." + "fakesnow");
 		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		
-		
-		
-		
 		// TODO Auto-generated constructor stub
 	}
 
