@@ -6,10 +6,10 @@
   ],
   "key": {
     "#": {
-      "item": "wintercraft:fakesnowballitem"
+      "item": "winter:fakesnowballitem"
     }
   },
   "result": {
-    "item": "wintercraft:fakesnow"
+    "item": "winter:fakesnow"
   }
 }

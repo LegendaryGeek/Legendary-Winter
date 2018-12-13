@@ -12,15 +12,15 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = WinterCraft.MODID, 
-name = WinterCraft.NAME, 
+@Mod(modid = Winter.MODID, 
+name = Winter.NAME, 
 acceptedMinecraftVersions = "[1.12.2]",
 dependencies = "required-after:forge@[14.23.4.2739,)",
-version = WinterCraft.VERSION)
-public class WinterCraft
+version = Winter.VERSION)
+public class Winter
 {
-    public static final String MODID = "wintercraft";
-    public static final String NAME = "Winter Craft";
+    public static final String MODID = "winter";
+    public static final String NAME = "Legendary Winter";
     public static final String VERSION = "1.0";
 
     public static Logger logger;
@@ -45,7 +45,7 @@ public class WinterCraft
 		/**
 		 * The Instance.
 		 */
-		private static final WinterCraft INSTANCE = new WinterCraft();
+		private static final Winter INSTANCE = new Winter();
 	}
     
     /**
@@ -53,7 +53,7 @@ public class WinterCraft
 	 * @return The Mod's Instance.
 	 */
 	@Mod.InstanceFactory
-	public static WinterCraft instance() {
+	public static Winter instance() {
 		return InstanceHolder.INSTANCE;
 	}
 	
@@ -61,8 +61,8 @@ public class WinterCraft
 	 *
 	 */
 	@SidedProxy(
-				clientSide = "com.geek.wintercraft.proxy.ClientProxy",
-				serverSide = "com.geek.wintercraft.proxy.ServerProxy")
+				clientSide = "com.geek.winter.proxy.ClientProxy",
+				serverSide = "com.geek.winter.proxy.ServerProxy")
 	private static Proxy proxy = null;
 	
 	/**

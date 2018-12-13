@@ -1,4 +1,5 @@
-tile.wintercraft.oresnow.name=Snowy Ore
-tile.wintercraft.fakesnow.name=Fake Snow
+tile.winter.oresnow.name=Snowstone
+tile.winter.fakesnow.name=Fake Snow
 
-item.wintercraft.fakesnowballitem.name=Fake Snowball
+item.winter.fakesnowballitem.name=Fake Snowball
+item.winter.ingotsnowy.name=Snowstone Ingot

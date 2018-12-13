@@ -1,10 +1,10 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "wintercraft:oresnow"
+    "model": "winter:oresnow"
   },
   "variants": {
-    "normal": [{"model": "wintercraft:oresnow"}],
-    "inventory": [{"model": "wintercraft:oresnow"}]
+    "normal": [{"model": "winter:oresnow"}],
+    "inventory": [{"model": "winter:oresnow"}]
     }
 }

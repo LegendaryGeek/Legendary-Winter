@@ -11,6 +11,9 @@ public class ItemsRegistery {
 	/**
 	 *
 	 */
-	@ObjectHolder("wintercraft:fakesnowballitem")
+	@ObjectHolder("winter:fakesnowballitem")
 	public static final Item FakeSnowBallItem = null;
+	
+	@ObjectHolder("winter:ingotsnowy")
+	public static final Item IngotSnowy = null;
 }

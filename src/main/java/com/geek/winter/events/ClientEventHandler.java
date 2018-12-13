@@ -1,6 +1,6 @@
 package com.geek.winter.events;
 
-import com.geek.winter.WinterCraft;
+import com.geek.winter.Winter;
 import com.geek.winter.fluids.FluidStateMapper;
 import com.geek.winter.init.BlocksRegistry;
 import com.geek.winter.init.FluidsRegistry;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod.EventBusSubscriber(value = Side.CLIENT, modid = WinterCraft.MODID)
+@Mod.EventBusSubscriber(value = Side.CLIENT, modid = Winter.MODID)
 public class ClientEventHandler {
 	/**
 	 *
@@ -38,6 +38,7 @@ public class ClientEventHandler {
 		registerModel(Item.getItemFromBlock(BlocksRegistry.OreSnow));
 		registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
 		registerModel(ItemsRegistery.FakeSnowBallItem);
+		registerModel(ItemsRegistery.IngotSnowy);
 	}
 
 	/**
@@ -59,7 +60,7 @@ public class ClientEventHandler {
 		// final Block block = fluid.getBlock(); // Unfortunately this breaks when
 		// another mod registered it's fluid before us.
 		final Item item = Item.getItemFromBlock(block);
-		final ResourceLocation resourceLocation = new ResourceLocation(WinterCraft.MODID, fluid.getName());
+		final ResourceLocation resourceLocation = new ResourceLocation(Winter.MODID, fluid.getName());
 		final FluidStateMapper mapper = new FluidStateMapper(
 				resourceLocation.getNamespace() + ":" + fluid.getName());
 

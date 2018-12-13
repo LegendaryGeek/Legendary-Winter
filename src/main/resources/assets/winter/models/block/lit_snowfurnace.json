@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "winter:blocks/furnace_top",
+        "front": "winter:blocks/furnace_front_on",
+        "side": "winter:blocks/furnace_side"
+    }
+}

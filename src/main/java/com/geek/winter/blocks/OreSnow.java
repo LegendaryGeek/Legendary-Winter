@@ -23,7 +23,7 @@ public class OreSnow extends Block{
 	@Override
 	 public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	    {
-	        return Item.getByNameOrId("wintercraft:fakesnowballitem");
+	        return Item.getByNameOrId("winter:fakesnowballitem");
 	    }
 	public int quantityDropped(Random rand) {
 		return 2;

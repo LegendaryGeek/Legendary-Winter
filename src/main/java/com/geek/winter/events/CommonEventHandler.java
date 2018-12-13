@@ -1,9 +1,11 @@
 package com.geek.winter.events;
 
-import com.geek.winter.WinterCraft;
+import java.util.ArrayList;
+
+import com.geek.winter.Winter;
 import com.geek.winter.blocks.*;
 import com.geek.winter.init.*;
-import com.geek.winter.items.FakeSnowBallItem;
+import com.geek.winter.items.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -17,14 +19,17 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod.EventBusSubscriber(value = {Side.CLIENT, Side.SERVER}, modid = WinterCraft.MODID)
+@Mod.EventBusSubscriber(value = {Side.CLIENT, Side.SERVER}, modid = Winter.MODID)
 public final class CommonEventHandler {
 
 	/**
 	 *
 	 */
+	
+	
+	ArrayList<Block> ore = new ArrayList<Block>();
 	private CommonEventHandler() {
-		//
+		
 	}
 
 	/**
@@ -72,6 +77,7 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.FakeSnow));
 	  //event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 		event.getRegistry().register(setupItem(new FakeSnowBallItem(), "fakesnowballitem"));
+		event.getRegistry().register(setupItem(new IngotSnowy(), "ingotsnowy"));
 	}
 
 	/**
@@ -91,8 +97,11 @@ public final class CommonEventHandler {
 	 */
 	private static Block setupBlock(final Block block, final String name) {
 		block.setRegistryName(name);
-		block.setTranslationKey(WinterCraft.MODID + "." + name);
-
+		block.setTranslationKey(Winter.MODID + "." + name);
+		String oretest = block.getRegistryName().toString();
+		if(oretest.contains("ore")) {
+			
+		}
 		return block;
 	}
 
@@ -105,6 +114,7 @@ public final class CommonEventHandler {
 		final ItemBlock itemBlock = new ItemBlock(block);
 		final ResourceLocation name = block.getRegistryName();
 		itemBlock.setRegistryName(name);
+		Winter.logger.fatal("!#!#!#! block registered as " + block.getRegistryName());
 
 		return itemBlock;
 	}
@@ -117,8 +127,8 @@ public final class CommonEventHandler {
 	 */
 	private static Item setupItem(final Item item, final String name) {
 		item.setRegistryName(name);
-		item.setTranslationKey(WinterCraft.MODID + "." + name);
-		WinterCraft.logger.fatal("!#!#!#! item registered as" + item.getRegistryName());
+		item.setTranslationKey(Winter.MODID + "." + name);
+		Winter.logger.fatal("!#!#!#! item registered as " + item.getRegistryName());
 
 		return item;
 	}
