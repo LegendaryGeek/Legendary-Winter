@@ -1,8 +1,7 @@
 package com.geek.winter.init;
 
 import com.geek.winter.Winter;
-import com.geek.winter.blocks.FakeSnow;
-import com.geek.winter.blocks.OreSnow;
+import com.geek.winter.blocks.*;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -19,6 +18,9 @@ public class BlocksRegistry {
 	
 	@ObjectHolder("winter:oresnow")
 	public static final Block OreSnow = new OreSnow();
+	
+	@ObjectHolder("winter:snowfurnace")
+	public static final Block SnowFurnace = new SnowFurnace();
 	
 	@ObjectHolder("winter:fluidsnow")
 	public static final Block FluidSnow = null;

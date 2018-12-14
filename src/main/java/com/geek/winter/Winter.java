@@ -1,9 +1,13 @@
 package com.geek.winter;
 
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.Logger;
 
 import com.geek.winter.proxy.Proxy;
+import com.geek.winter.world.OreGenerator;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -11,6 +15,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Winter.MODID, 
 name = Winter.NAME, 
@@ -22,6 +27,7 @@ public class Winter
     public static final String MODID = "winter";
     public static final String NAME = "Legendary Winter";
     public static final String VERSION = "1.0";
+    public static ArrayList<Block> ore = new ArrayList<Block>();
 
     public static Logger logger;
 
@@ -30,6 +36,7 @@ public class Winter
     {
     	proxy.preInit(event);
         logger = event.getModLog();
+        GameRegistry.registerWorldGenerator(new OreGenerator(), 3);
         
     }
 

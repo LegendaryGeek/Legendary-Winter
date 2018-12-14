@@ -2,6 +2,7 @@ package com.geek.winter.init;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import com.geek.winter.items.*;
 
 public class ItemsRegistery {
 	
@@ -12,8 +13,8 @@ public class ItemsRegistery {
 	 *
 	 */
 	@ObjectHolder("winter:fakesnowballitem")
-	public static final Item FakeSnowBallItem = null;
+	public static final Item FakeSnowBallItem = new FakeSnowBallItem();
 	
 	@ObjectHolder("winter:ingotsnowy")
-	public static final Item IngotSnowy = null;
+	public static final Item IngotSnowy = new IngotSnowy();
 }

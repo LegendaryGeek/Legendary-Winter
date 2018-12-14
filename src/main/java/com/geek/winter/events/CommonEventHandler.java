@@ -27,7 +27,7 @@ public final class CommonEventHandler {
 	 */
 	
 	
-	ArrayList<Block> ore = new ArrayList<Block>();
+	
 	private CommonEventHandler() {
 		
 	}
@@ -62,7 +62,7 @@ public final class CommonEventHandler {
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
 		event.getRegistry().register(setupBlock(new OreSnow(), "oresnow"));
 		event.getRegistry().register(setupBlock(new FakeSnow(), "fakesnow"));
-		
+		event.getRegistry().register(setupBlock(new SnowFurnace(), "snowfurnace"));
 		event.getRegistry().register(setupBlock(
 				new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}
@@ -75,6 +75,7 @@ public final class CommonEventHandler {
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.OreSnow));
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.FakeSnow));
+		event.getRegistry().register(setupItemBlock(BlocksRegistry.SnowFurnace));
 	  //event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 		event.getRegistry().register(setupItem(new FakeSnowBallItem(), "fakesnowballitem"));
 		event.getRegistry().register(setupItem(new IngotSnowy(), "ingotsnowy"));
@@ -100,7 +101,7 @@ public final class CommonEventHandler {
 		block.setTranslationKey(Winter.MODID + "." + name);
 		String oretest = block.getRegistryName().toString();
 		if(oretest.contains("ore")) {
-			
+			Winter.ore.add(block);
 		}
 		return block;
 	}
