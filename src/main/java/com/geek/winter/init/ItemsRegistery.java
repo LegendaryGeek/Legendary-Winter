@@ -6,9 +6,6 @@ import com.geek.winter.items.*;
 
 public class ItemsRegistery {
 	
-	private void ItemsRegistry() {
-		//
-	}
 	/**
 	 *
 	 */
@@ -17,4 +14,5 @@ public class ItemsRegistery {
 	
 	@ObjectHolder("winter:ingotsnowy")
 	public static final Item IngotSnowy = new IngotSnowy();
+
 }

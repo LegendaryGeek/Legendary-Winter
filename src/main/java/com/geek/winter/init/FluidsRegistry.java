@@ -5,8 +5,6 @@ import com.geek.winter.Winter;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 
 public class FluidsRegistry {
@@ -24,8 +22,8 @@ public class FluidsRegistry {
 	public static void init() {
 		FluidSnow.setDensity(1);
 		FluidSnow.setViscosity(1);
-		FluidSnow.setTemperature(1);
-		FluidSnow.setLuminosity(1);
+		FluidSnow.setTemperature(0);
+		FluidSnow.setLuminosity(200);
 		FluidSnow.setUnlocalizedName(Winter.MODID + "." + "FluidSnow");
 		FluidRegistry.registerFluid(FluidSnow);
 		FluidRegistry.addBucketForFluid(FluidSnow);

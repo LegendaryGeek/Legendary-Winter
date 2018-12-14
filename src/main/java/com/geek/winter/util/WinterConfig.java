@@ -10,6 +10,6 @@ import net.minecraftforge.fml.common.Mod;
  */
 @Mod.EventBusSubscriber(modid = Winter.MODID)
 @Config(modid = Winter.MODID, category = "")
-public class WinterCraftConfig {
-
+public class WinterConfig {
+	
 }
