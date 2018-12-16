@@ -2,9 +2,9 @@ package com.geek.winter.tileentity;
 
 import com.geek.winter.blocks.SnowFurnace;
 import com.geek.winter.init.BlocksRegistry;
-import com.geek.winter.init.ItemsRegistery;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -25,6 +25,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
@@ -33,7 +34,6 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.datafix.walkers.ItemStackDataLists;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -185,7 +185,7 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
 
     public static void registerFixesFurnace(DataFixer fixer)
     {
-        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TESnowFurnace.class, new String[] {"Items"}));
+        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TileEntityFurnace.class, new String[] {"Items"}));
     }
 
     public void readFromNBT(NBTTagCompound compound)
@@ -410,17 +410,17 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
             if (burnTime >= 0) return burnTime;
             Item item = stack.getItem();
 
-            if (item == ItemsRegistery.FakeSnowBallItem)
+            if (item == Item.getItemFromBlock(Blocks.WOODEN_SLAB))
             {
-                return 250;
+                return 150;
             }
-            else if (item == Item.getItemFromBlock(BlocksRegistry.FakeSnow))
+            else if (item == Item.getItemFromBlock(Blocks.WOOL))
             {
-                return 300;
+                return 100;
             }
-            else if (item == Item.getItemFromBlock(Blocks.SNOW_LAYER))
+            else if (item == Item.getItemFromBlock(Blocks.CARPET))
             {
-                return 40;
+                return 67;
             }
             else if (item == Item.getItemFromBlock(Blocks.LADDER))
             {
@@ -655,16 +655,4 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
                 return (T) handlerSide;
         return super.getCapability(capability, facing);
     }
-
-	@Override
-	public void markDirty() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ITextComponent getDisplayName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

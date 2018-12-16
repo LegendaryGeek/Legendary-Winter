@@ -62,7 +62,7 @@ public final class CommonEventHandler {
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
 		event.getRegistry().register(setupBlock(new OreSnow(), "oresnow"));
 		event.getRegistry().register(setupBlock(new FakeSnow(), "fakesnow"));
-		event.getRegistry().register(setupBlock(new SnowFurnace(), "snowfurnace"));
+		event.getRegistry().register(setupBlock(new SnowFurnace(false), "snowfurnace"));
 		event.getRegistry().register(setupBlock(
 				new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}

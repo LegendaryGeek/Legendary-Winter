@@ -22,7 +22,10 @@ public class BlocksRegistry {
 	public static final Block OreSnow = new OreSnow();
 	
 	@ObjectHolder("winter:snowfurnace")
-	public static final Block SnowFurnace = new SnowFurnace();
+	public static final Block SnowFurnace = new SnowFurnace(false);
+	
+	@ObjectHolder("winter:lit_snowfurnace")
+	public static final Block Lit_SnowFurnace = new SnowFurnace(true);
 	
 	@ObjectHolder("winter:fluidsnow")
 	public static final Block FluidSnow = null;
