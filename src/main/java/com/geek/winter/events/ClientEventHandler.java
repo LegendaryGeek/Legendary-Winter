@@ -36,6 +36,7 @@ public class ClientEventHandler {
 	public static void registerModels(final ModelRegistryEvent event) {
 		registerModel(Item.getItemFromBlock(BlocksRegistry.FakeSnow));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.OreSnow));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.SnowFurnace));
 		registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
 		registerModel(ItemsRegistery.FakeSnowBallItem);
 		registerModel(ItemsRegistery.IngotSnowy);
