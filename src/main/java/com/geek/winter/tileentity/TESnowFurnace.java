@@ -2,6 +2,7 @@ package com.geek.winter.tileentity;
 
 import com.geek.winter.blocks.SnowFurnace;
 import com.geek.winter.init.BlocksRegistry;
+import com.geek.winter.init.ItemsRegistery;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFurnace;
@@ -426,11 +427,11 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
             {
                 return 300;
             }
-            else if (item == Item.getItemFromBlock(Blocks.WOODEN_BUTTON))
+            else if (item == Items.SNOWBALL)
             {
                 return 100;
             }
-            else if (Block.getBlockFromItem(item).getDefaultState().getMaterial() == Material.WOOD)
+            else if (item == Item.getItemFromBlock(BlocksRegistry.FakeSnow))
             {
                 return 300;
             }
@@ -470,7 +471,7 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
                 }
                 else if (item != Item.getItemFromBlock(Blocks.SAPLING) && item != Items.BOWL)
                 {
-                    if (item == Items.BLAZE_ROD)
+                    if (item == ItemsRegistery.FakeSnowBallItem)
                     {
                         return 2400;
                     }
