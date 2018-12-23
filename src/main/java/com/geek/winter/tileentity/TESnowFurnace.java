@@ -3,10 +3,8 @@ package com.geek.winter.tileentity;
 import com.geek.winter.blocks.SnowFurnace;
 import com.geek.winter.init.BlocksRegistry;
 import com.geek.winter.init.ItemsRegistery;
+import com.geek.winter.items.recipe.SnowFurnaceRecipes;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockFurnace;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -336,7 +334,7 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
         }
         else
         {
-            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks.get(0));
+            ItemStack itemstack = SnowFurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks.get(0));
 
             if (itemstack.isEmpty())
             {
@@ -374,7 +372,7 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
         if (this.canSmelt())
         {
             ItemStack itemstack = this.furnaceItemStacks.get(0);
-            ItemStack itemstack1 = FurnaceRecipes.instance().getSmeltingResult(itemstack);
+            ItemStack itemstack1 = SnowFurnaceRecipes.instance().getSmeltingResult(itemstack);
             ItemStack itemstack2 = this.furnaceItemStacks.get(2);
 
             if (itemstack2.isEmpty())
