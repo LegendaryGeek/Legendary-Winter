@@ -118,19 +118,19 @@ public class SnowFurnace extends BlockContainer {
             switch (enumfacing)
             {
                 case WEST:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.SNOWBALL, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
                     worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
                     break;
                 case EAST:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.SNOWBALL, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
                     worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
                     break;
                 case NORTH:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.SNOWBALL, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
                     worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
                     break;
                 case SOUTH:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.SNOWBALL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
                     worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
             }
         }
@@ -239,24 +239,6 @@ public class SnowFurnace extends BlockContainer {
         super.breakBlock(worldIn, pos, state);
     }
 
-    /**
-     * @deprecated call via {@link IBlockState#hasComparatorInputOverride()} whenever possible. Implementing/overriding
-     * is fine.
-     */
-    public boolean hasComparatorInputOverride(IBlockState state)
-    {
-        return true;
-    }
-
-    /**
-     * @deprecated call via {@link IBlockState#getComparatorInputOverride(World,BlockPos)} whenever possible.
-     * Implementing/overriding is fine.
-     */
-    public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos)
-    {
-        return Container.calcRedstone(worldIn.getTileEntity(pos));
-    }
-
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {
         return new ItemStack(BlocksRegistry.SnowFurnace);
@@ -295,7 +277,7 @@ public class SnowFurnace extends BlockContainer {
         return ((EnumFacing)state.getValue(FACING)).getIndex();
     }
 
-    /**
+   /**
      * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed
      * blockstate.
      * @deprecated call via {@link IBlockState#withRotation(Rotation)} whenever possible. Implementing/overriding is
