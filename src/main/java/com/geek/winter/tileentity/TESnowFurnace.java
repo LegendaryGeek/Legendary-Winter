@@ -3,6 +3,7 @@ package com.geek.winter.tileentity;
 import com.geek.winter.blocks.SnowFurnace;
 import com.geek.winter.init.BlocksRegistry;
 import com.geek.winter.init.ItemsRegistery;
+import com.geek.winter.inventory.containerSnowFurnace;
 import com.geek.winter.items.recipe.SnowFurnaceRecipes;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,7 +11,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ContainerFurnace;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
@@ -178,7 +178,7 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
 
     public static void registerFixesFurnace(DataFixer fixer)
     {
-        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TileEntityFurnace.class, new String[] {"Items"}));
+        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TESnowFurnace.class, new String[] {"Items"}));
     }
 
     public void readFromNBT(NBTTagCompound compound)
@@ -515,7 +515,7 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
 
     public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)
     {
-        return new ContainerFurnace(playerInventory, this);
+        return new containerSnowFurnace(playerInventory, this);
     }
 
     public int getField(int id)
