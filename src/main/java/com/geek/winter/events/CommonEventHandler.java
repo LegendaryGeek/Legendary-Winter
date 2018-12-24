@@ -1,11 +1,15 @@
 package com.geek.winter.events;
 
-import java.util.ArrayList;
-
 import com.geek.winter.Winter;
-import com.geek.winter.blocks.*;
-import com.geek.winter.init.*;
-import com.geek.winter.items.*;
+import com.geek.winter.blocks.FakeSnow;
+import com.geek.winter.blocks.OreSnow;
+import com.geek.winter.blocks.SnowFurnace;
+import com.geek.winter.blocks.WinterStone;
+import com.geek.winter.init.BlocksRegistry;
+import com.geek.winter.init.FluidsRegistry;
+import com.geek.winter.items.FakeSnowBallItem;
+import com.geek.winter.items.IngotSnowy;
+import com.geek.winter.tileentity.TESnowFurnace;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -17,6 +21,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(value = {Side.CLIENT, Side.SERVER}, modid = Winter.MODID)
@@ -65,6 +70,7 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupBlock(new WinterStone(), "winterstone"));
 		event.getRegistry().register(setupBlock(new SnowFurnace(false), "snowfurnace"));
 		event.getRegistry().register(setupBlock(new SnowFurnace(true), "lit_snowfurnace"));
+		GameRegistry.registerTileEntity(TESnowFurnace.class, new ResourceLocation(Winter.MODID + ":snowfurnace"));
 		event.getRegistry().register(setupBlock(
 				new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}
@@ -102,10 +108,6 @@ public final class CommonEventHandler {
 	private static Block setupBlock(final Block block, final String name) {
 		block.setRegistryName(name);
 		block.setTranslationKey(Winter.MODID + "." + name);
-		String oretest = block.getRegistryName().toString();
-		if(oretest.contains("ore")) {
-			Winter.ore.add(block);
-		}
 		return block;
 	}
 
