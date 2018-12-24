@@ -60,8 +60,9 @@ public final class CommonEventHandler {
 	 */
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-		event.getRegistry().register(setupBlock(new OreSnow(), "oresnow"));
+		event.getRegistry().register(setupBlock(new OreSnow(), "snowstone_ore"));
 		event.getRegistry().register(setupBlock(new FakeSnow(), "fakesnow"));
+		event.getRegistry().register(setupBlock(new WinterStone(), "winterstone"));
 		event.getRegistry().register(setupBlock(new SnowFurnace(false), "snowfurnace"));
 		event.getRegistry().register(setupBlock(new SnowFurnace(true), "lit_snowfurnace"));
 		event.getRegistry().register(setupBlock(
@@ -75,11 +76,12 @@ public final class CommonEventHandler {
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.OreSnow));
+		event.getRegistry().register(setupItemBlock(BlocksRegistry.WinterStone));
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.FakeSnow));
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.SnowFurnace));
 	  //event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 		event.getRegistry().register(setupItem(new FakeSnowBallItem(), "fakesnowballitem"));
-		event.getRegistry().register(setupItem(new IngotSnowy(), "ingotsnowy"));
+		event.getRegistry().register(setupItem(new IngotSnowy(), "snowstone_ingot"));
 	}
 
 	/**

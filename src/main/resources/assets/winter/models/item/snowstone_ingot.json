@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "winter:items/ingotsnowy"
+        "layer0": "winter:items/snowstone_ingot"
     }
 }
