@@ -8,6 +8,7 @@ import com.geek.winter.init.ItemsRegistery;
 import com.google.common.collect.Maps;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -25,6 +26,7 @@ public class SnowFurnaceRecipes {
     
     private SnowFurnaceRecipes() {
     	this.addSmeltingRecipeForBlock(BlocksRegistry.OreSnow, new ItemStack(ItemsRegistery.IngotSnowy), 5.5f);
+    	this.addSmeltingRecipeForBlock(Blocks.ICE, new ItemStack(Blocks.PACKED_ICE), 5.5f);
     }
 	
     /**
