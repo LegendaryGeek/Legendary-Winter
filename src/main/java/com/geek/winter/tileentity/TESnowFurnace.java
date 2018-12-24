@@ -178,7 +178,7 @@ public class TESnowFurnace extends TileEntityLockable implements ITickable, ISid
 
     public static void registerFixesFurnace(DataFixer fixer)
     {
-        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TileEntityFurnace.class, new String[] {"Items"}));
+        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TESnowFurnace.class, new String[] {"Items"}));
     }
 
     public void readFromNBT(NBTTagCompound compound)
