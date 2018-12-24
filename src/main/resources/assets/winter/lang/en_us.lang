@@ -1,6 +1,7 @@
-tile.winter.oresnow.name=Snowstone
+tile.winter.snowstone_ore.name=Snowstone Ore
 tile.winter.fakesnow.name=Fake Snow
 tile.winter.snowfurnace.name=Winter Furnace
+tile.winter.winterstone.name=Winter Stone
 
 item.winter.fakesnowballitem.name=Fake Snowball
-item.winter.ingotsnowy.name=Snowstone Ingot
+item.winter.snowstone_ingot.name=Snowstone Ingot
