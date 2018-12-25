@@ -26,6 +26,7 @@ public class SnowFurnaceRecipes {
     
     private SnowFurnaceRecipes() {
     	this.addSmeltingRecipeForBlock(BlocksRegistry.OreSnow, new ItemStack(ItemsRegistery.IngotSnowy), 5.5f);
+    	this.addSmeltingRecipe(new ItemStack(ItemsRegistery.FakeSnowBallItem), new ItemStack(ItemsRegistery.IngotSnowy), 10000.5f);
     	this.addSmeltingRecipeForBlock(Blocks.ICE, new ItemStack(Blocks.PACKED_ICE), 5.5f);
     }
 	
@@ -50,7 +51,7 @@ public class SnowFurnaceRecipes {
      */
     public void addSmeltingRecipe(ItemStack input, ItemStack stack, float experience)
     {
-        if (getSmeltingResult(input) != ItemStack.EMPTY) { net.minecraftforge.fml.common.FMLLog.log.info("Ignored smelting recipe with conflicting input: {} = {}", input, stack); return; }
+        if (getSmeltingResult(input) != ItemStack.EMPTY) { net.minecraftforge.fml.common.FMLLog.log.info("Ignored Freezing recipe with conflicting input: {} = {}", input, stack); return; }
         this.smeltingList.put(input, stack);
         this.experienceList.put(stack, Float.valueOf(experience));
     }
