@@ -418,7 +418,7 @@ public class WinterFurnace extends TileEntityLockable implements ITickable, ISid
         else
         {
             ItemStack itemstack = this.furnaceItemStacks.get(1);
-            return isItemFuel(stack) || SlotFurnaceFuel.isBucket(stack) && itemstack.getItem() != Items.BUCKET;
+            return isItemFuel(stack) || SlotSnowFurnaceFuel.isBucket(stack) && itemstack.getItem() != Items.BUCKET;
         }
     }
 
