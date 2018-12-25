@@ -1,6 +1,6 @@
 package geek.legendarywinter.inventory;
 
-import geek.legendarywinter.tileentity.WinterFurnace;
+import geek.legendarywinter.tileentity.TEWinterFurnace;
 
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -19,7 +19,7 @@ public class slotSnowFurnaceFuel extends Slot
      */
     public boolean isItemValid(ItemStack stack)
     {
-        return WinterFurnace.isItemFuel(stack) || isBucket(stack);
+        return TEWinterFurnace.isItemFuel(stack) || isBucket(stack);
     }
 
     public int getItemStackLimit(ItemStack stack)

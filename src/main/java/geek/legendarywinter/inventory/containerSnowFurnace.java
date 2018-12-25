@@ -2,7 +2,7 @@ package geek.legendarywinter.inventory;
 
 
 import geek.legendarywinter.items.recipe.SnowFurnaceRecipes;
-import geek.legendarywinter.tileentity.WinterFurnace;
+import geek.legendarywinter.tileentity.TEWinterFurnace;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -133,7 +133,7 @@ public class containerSnowFurnace extends Container
                         return ItemStack.EMPTY;
                     }
                 }
-                else if (WinterFurnace.isItemFuel(itemstack1))
+                else if (TEWinterFurnace.isItemFuel(itemstack1))
                 {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false))
                     {

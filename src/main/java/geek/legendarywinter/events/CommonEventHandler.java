@@ -9,7 +9,7 @@ import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.init.FluidsRegistry;
 import geek.legendarywinter.items.FakeSnowball;
 import geek.legendarywinter.items.IngotSnowstone;
-import geek.legendarywinter.tileentity.WinterFurnace;
+import geek.legendarywinter.tileentity.TEWinterFurnace;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -70,7 +70,7 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupBlock(new Winterstone(), "winterstone"));
 		event.getRegistry().register(setupBlock(new SnowFurnace(false), "snowfurnace"));
 		event.getRegistry().register(setupBlock(new SnowFurnace(true), "lit_snowfurnace"));
-		GameRegistry.registerTileEntity(WinterFurnace.class, new ResourceLocation(LegendaryWinter.MODID + ":snowfurnace"));
+		GameRegistry.registerTileEntity(TEWinterFurnace.class, new ResourceLocation(LegendaryWinter.MODID + ":snowfurnace"));
 		event.getRegistry().register(setupBlock(
 				new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}

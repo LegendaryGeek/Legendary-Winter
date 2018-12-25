@@ -30,7 +30,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WinterFurnace extends TileEntityLockable implements ITickable, ISidedInventory
+public class TEWinterFurnace extends TileEntityLockable implements ITickable, ISidedInventory
 {
     private static final int[] SLOTS_TOP = new int[] {0};
     private static final int[] SLOTS_BOTTOM = new int[] {2, 1};
@@ -131,7 +131,7 @@ public class WinterFurnace extends TileEntityLockable implements ITickable, ISid
 
     public static void registerFixesFurnace(DataFixer fixer)
     {
-        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(WinterFurnace.class, new String[] {"Items"}));
+        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TEWinterFurnace.class, new String[] {"Items"}));
     }
 
     public void readFromNBT(NBTTagCompound compound)

@@ -2,6 +2,7 @@ package geek.legendarywinter.blocks;
 
 import java.util.Random;
 
+import geek.legendarywinter.init.ItemsRegistery;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -20,6 +21,6 @@ public class FakeSnow extends Block {
 	@Override
 	 public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	    {
-	        return Item.getByNameOrId("lw:fakesnowball");
+	        return ItemsRegistery.FakeSnowBallItem;
 	    }
 }

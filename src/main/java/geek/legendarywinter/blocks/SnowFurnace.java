@@ -3,7 +3,7 @@ package geek.legendarywinter.blocks;
 import java.util.Random;
 
 import geek.legendarywinter.init.BlocksRegistry;
-import geek.legendarywinter.tileentity.WinterFurnace;
+import geek.legendarywinter.tileentity.TEWinterFurnace;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -12,6 +12,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -41,7 +42,7 @@ public class SnowFurnace extends BlockContainer {
     {
     	
         super(Material.ROCK);
-        
+        this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
     }
@@ -150,9 +151,9 @@ public class SnowFurnace extends BlockContainer {
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof WinterFurnace)
+            if (tileentity instanceof TEWinterFurnace)
             {
-                playerIn.displayGUIChest((WinterFurnace)tileentity);
+                playerIn.displayGUIChest((TEWinterFurnace)tileentity);
                 playerIn.addStat(StatList.FURNACE_INTERACTION);
             }
 
@@ -191,7 +192,7 @@ public class SnowFurnace extends BlockContainer {
      */
     public TileEntity createNewTileEntity(World worldIn, int meta)
     {
-        return new WinterFurnace();
+        return new TEWinterFurnace();
     }
 
     /**
@@ -214,9 +215,9 @@ public class SnowFurnace extends BlockContainer {
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof WinterFurnace)
+            if (tileentity instanceof TEWinterFurnace)
             {
-                ((WinterFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
+                ((TEWinterFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
             }
         }
     }
@@ -230,9 +231,9 @@ public class SnowFurnace extends BlockContainer {
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof WinterFurnace)
+            if (tileentity instanceof TEWinterFurnace)
             {
-                InventoryHelper.dropInventoryItems(worldIn, pos, (WinterFurnace)tileentity);
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TEWinterFurnace)tileentity);
                 worldIn.updateComparatorOutputLevel(pos, this);
             }
         }
