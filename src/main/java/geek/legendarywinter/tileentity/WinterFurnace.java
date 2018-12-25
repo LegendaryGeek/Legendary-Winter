@@ -4,6 +4,7 @@ import geek.legendarywinter.blocks.SnowFurnace;
 import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.init.ItemsRegistery;
 import geek.legendarywinter.inventory.containerSnowFurnace;
+import geek.legendarywinter.inventory.slotSnowFurnaceFuel;
 import geek.legendarywinter.items.recipe.SnowFurnaceRecipes;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -418,7 +419,7 @@ public class WinterFurnace extends TileEntityLockable implements ITickable, ISid
         else
         {
             ItemStack itemstack = this.furnaceItemStacks.get(1);
-            return isItemFuel(stack) || SlotSnowFurnaceFuel.isBucket(stack) && itemstack.getItem() != Items.BUCKET;
+            return isItemFuel(stack) || slotSnowFurnaceFuel.isBucket(stack) && itemstack.getItem() != Items.BUCKET;
         }
     }
 
