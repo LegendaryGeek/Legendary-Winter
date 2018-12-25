@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "legendarywinter:snowfurnace" },
+        "facing=south": { "model": "legendarywinter:snowfurnace", "y": 180 },
+        "facing=west":  { "model": "legendarywinter:snowfurnace", "y": 270 },
+        "facing=east":  { "model": "legendarywinter:snowfurnace", "y": 90 }
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "legendarywinter:winterstone"
+  },
+  "variants": {
+    "normal": [{"model": "legendarywinter:winterstone"}],
+    "inventory": [{"model": "legendarywinter:winterstone"}]
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "legendarywinter:snowstone_ore"
+  },
+  "variants": {
+    "normal": [{"model": "legendarywinter:snowstone_ore"}],
+    "inventory": [{"model": "legendarywinter:snowstone_ore"}]
+    }
+}

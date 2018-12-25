@@ -24,7 +24,7 @@ dependencies = "required-after:forge@[14.23.4.2739,)",
 version = LegendaryWinter.VERSION)
 public class LegendaryWinter
 {
-    public static final String MODID = "lw";
+    public static final String MODID = "legendarywinter";
     public static final String NAME = "Legendary Winter";
     public static final String VERSION = "1.0";
     public static ArrayList<Block> ore = new ArrayList<Block>();

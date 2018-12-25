@@ -1,0 +1,10 @@
+{ 
+  "forge_marker": 1,
+  "defaults": {
+    "model": "legendarywinter:fakesnow"
+  },
+ "variants": {
+    "normal": [{"model": "legendarywinter:fakesnow"}],
+    "inventory": [{"model": "legendarywinter:fakesnow"}]
+    }
+}

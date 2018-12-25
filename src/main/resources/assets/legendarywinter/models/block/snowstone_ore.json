@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "winter:blocks/fakesnow"
+    "all": "legendarywinter:blocks/snowstone_ore"
   }
 }
