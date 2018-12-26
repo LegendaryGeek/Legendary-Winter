@@ -33,27 +33,20 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SnowFurnace extends BlockContainer {
+public class Winter_Furnace extends BlockContainer {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     private final boolean isBurning;
     private static boolean keepInventory;
 
-    public SnowFurnace(boolean isBurning)
+    public Winter_Furnace(boolean isBurning)
     {
-    	
         super(Material.ROCK);
+        this.setHarvestLevel("pickaxe", 0);
         this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
     }
 
-    /**
-     * Get the Item that this Block should drop when harvested.
-     */
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
-        return Item.getItemFromBlock(BlocksRegistry.SnowFurnace);
-    }
 
     /**
      * Called after the block is set in the Chunk data, but before the Tile Entity is set
@@ -99,8 +92,9 @@ public class SnowFurnace extends BlockContainer {
      * this method is unrelated to {@link randomTick} and {@link #needsRandomTick}, and will always be called regardless
      * of whether the block can receive random update ticks
      */
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings("incomplete-switch")
+	@SideOnly(Side.CLIENT)
+    
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
     {
         if (this.isBurning)
@@ -134,6 +128,7 @@ public class SnowFurnace extends BlockContainer {
                 case SOUTH:
                     worldIn.spawnParticle(EnumParticleTypes.SNOWBALL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
                     worldIn.spawnParticle(EnumParticleTypes.SNOWBALL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
+
             }
         }
     }

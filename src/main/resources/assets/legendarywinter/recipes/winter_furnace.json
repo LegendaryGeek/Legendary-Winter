@@ -1,5 +1,5 @@
 {
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "###",
     "# #",
@@ -11,6 +11,6 @@
     }
   },
   "result": {
-    "item": "legendarywinter:winter_furnace"
+    "item": "legendarywinter:snowfurnace"
   }
 }

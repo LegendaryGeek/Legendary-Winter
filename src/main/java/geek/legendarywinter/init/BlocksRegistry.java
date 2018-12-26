@@ -26,10 +26,10 @@ public class BlocksRegistry {
 	public static final Block WinterStone = new Winterstone();
 	
 	@ObjectHolder("legendarywinter:snowfurnace")
-	public static final Block SnowFurnace = new SnowFurnace(false);
+	public static final Block SnowFurnace = new Winter_Furnace(false);
 	
 	@ObjectHolder("legendarywinter:lit_snowfurnace")
-	public static final Block Lit_SnowFurnace = new SnowFurnace(true);
+	public static final Block Lit_SnowFurnace = new Winter_Furnace(true);
 	
 	@ObjectHolder("legendarywinter:fluidsnow")
 	public static final Block FluidSnow = null;

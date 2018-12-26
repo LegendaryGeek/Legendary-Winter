@@ -1,6 +1,6 @@
 package geek.legendarywinter.tileentity;
 
-import geek.legendarywinter.blocks.SnowFurnace;
+import geek.legendarywinter.blocks.Winter_Furnace;
 import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.init.ItemsRegistery;
 import geek.legendarywinter.inventory.containerSnowFurnace;
@@ -255,7 +255,7 @@ public class TEWinterFurnace extends TileEntityLockable implements ITickable, IS
             if (flag != this.isBurning())
             {
                 flag1 = true;
-                SnowFurnace.setState(this.isBurning(), this.world, this.pos);
+                Winter_Furnace.setState(this.isBurning(), this.world, this.pos);
             }
         }
 
