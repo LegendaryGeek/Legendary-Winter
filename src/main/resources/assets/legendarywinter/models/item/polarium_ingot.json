@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "legendarywinter:items/snowstone_ingot"
+        "layer0": "legendarywinter:items/polarium_ingot"
     }
 }

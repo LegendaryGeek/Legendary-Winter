@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "legendarywinter:blocks/fakesnow"
+    "all": "legendarywinter:blocks/polarium_ore"
   }
 }
