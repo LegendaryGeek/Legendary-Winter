@@ -33,12 +33,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SnowFurnace extends BlockContainer {
+public class Winter_Furnace extends BlockContainer {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     private final boolean isBurning;
     private static boolean keepInventory;
 
-    public SnowFurnace(boolean isBurning)
+    public Winter_Furnace(boolean isBurning)
     {
         super(Material.ROCK);
         this.setHarvestLevel("pickaxe", 0);

@@ -25,8 +25,8 @@ public class SnowFurnaceRecipes {
     }
     
     private SnowFurnaceRecipes() {
-    	this.addSmeltingRecipeForBlock(BlocksRegistry.OreSnow, new ItemStack(ItemsRegistery.IngotSnowy), 5.5f);
-    	this.addSmeltingRecipe(new ItemStack(ItemsRegistery.FakeSnowBallItem), new ItemStack(ItemsRegistery.IngotSnowy, 2), 10000.5f);
+    	this.addSmeltingRecipeForBlock(Blocks.SNOW, new ItemStack(ItemsRegistery.IngotSnowy, 2), 5.5f);
+    	this.addSmeltingRecipe(new ItemStack(ItemsRegistery.FakeSnowBallItem), new ItemStack(ItemsRegistery.IngotSnowy), 10000.5f);
     	this.addSmeltingRecipeForBlock(Blocks.ICE, new ItemStack(Blocks.PACKED_ICE), 5.5f);
     }
 	
