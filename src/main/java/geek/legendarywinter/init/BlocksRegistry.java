@@ -16,6 +16,9 @@ public class BlocksRegistry {
 	@ObjectHolder("legendarywinter:fakesnow")
 	public static final Block FakeSnow = new FakeSnow();
 	
+	@ObjectHolder("legendarywinter:snowstone_block")
+	public static final Block SnowStone = new SnowStoneBlock();
+	
 	@ObjectHolder("legendarywinter:snowstone_ore")
 	public static final Block OreSnow = new OreSnowstone();
 	
