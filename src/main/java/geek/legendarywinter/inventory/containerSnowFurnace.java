@@ -1,8 +1,8 @@
 package geek.legendarywinter.inventory;
 
 
-import geek.legendarywinter.items.recipe.SnowFurnaceRecipes;
-import geek.legendarywinter.tileentity.TEWinterFurnace;
+import geek.legendarywinter.items.recipe.Winter_Furnace_Recipes;
+import geek.legendarywinter.tileentity.TEWinter_Furnace;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -126,14 +126,14 @@ public class containerSnowFurnace extends Container
             }
             else if (index != 1 && index != 0)
             {
-                if (!SnowFurnaceRecipes.instance().getSmeltingResult(itemstack1).isEmpty())
+                if (!Winter_Furnace_Recipes.instance().getSmeltingResult(itemstack1).isEmpty())
                 {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false))
                     {
                         return ItemStack.EMPTY;
                     }
                 }
-                else if (TEWinterFurnace.isItemFuel(itemstack1))
+                else if (TEWinter_Furnace.isItemFuel(itemstack1))
                 {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false))
                     {

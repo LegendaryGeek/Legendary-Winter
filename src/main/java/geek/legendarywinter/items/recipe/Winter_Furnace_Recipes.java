@@ -12,19 +12,19 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class SnowFurnaceRecipes {
+public class Winter_Furnace_Recipes {
 	
-    private static final SnowFurnaceRecipes SMELTING_BASE = new SnowFurnaceRecipes();
+    private static final Winter_Furnace_Recipes SMELTING_BASE = new Winter_Furnace_Recipes();
     /** The list of smelting results. */
     private final Map<ItemStack, ItemStack> smeltingList = Maps.<ItemStack, ItemStack>newHashMap();
     /** A list which contains how many experience points each recipe output will give. */
     private final Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
     
-    public static SnowFurnaceRecipes instance(){
+    public static Winter_Furnace_Recipes instance(){
         return SMELTING_BASE;
     }
     
-    private SnowFurnaceRecipes() {
+    private Winter_Furnace_Recipes() {
     	this.addSmeltingRecipeForBlock(Blocks.SNOW, new ItemStack(ItemsRegistery.IngotSnowy, 2), 5.5f);
     	this.addSmeltingRecipe(new ItemStack(ItemsRegistery.FakeSnowBallItem), new ItemStack(ItemsRegistery.IngotSnowy), 10000.5f);
     	this.addSmeltingRecipeForBlock(Blocks.ICE, new ItemStack(Blocks.PACKED_ICE), 5.5f);

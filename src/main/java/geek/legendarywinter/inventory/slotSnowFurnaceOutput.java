@@ -1,6 +1,6 @@
 package geek.legendarywinter.inventory;
 
-import geek.legendarywinter.items.recipe.SnowFurnaceRecipes;
+import geek.legendarywinter.items.recipe.Winter_Furnace_Recipes;
 
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
@@ -70,7 +70,7 @@ public class slotSnowFurnaceOutput extends Slot
         if (!this.player.world.isRemote)
         {
             int i = this.removeCount;
-            float f = SnowFurnaceRecipes.instance().getSmeltingExperience(stack);
+            float f = Winter_Furnace_Recipes.instance().getSmeltingExperience(stack);
 
             if (f == 0.0F)
             {

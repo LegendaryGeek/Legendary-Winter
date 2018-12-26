@@ -3,7 +3,7 @@ package geek.legendarywinter.blocks;
 import java.util.Random;
 
 import geek.legendarywinter.init.BlocksRegistry;
-import geek.legendarywinter.tileentity.TEWinterFurnace;
+import geek.legendarywinter.tileentity.TEWinter_Furnace;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -146,9 +146,9 @@ public class Winter_Furnace extends BlockContainer {
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TEWinterFurnace)
+            if (tileentity instanceof TEWinter_Furnace)
             {
-                playerIn.displayGUIChest((TEWinterFurnace)tileentity);
+                playerIn.displayGUIChest((TEWinter_Furnace)tileentity);
                 playerIn.addStat(StatList.FURNACE_INTERACTION);
             }
 
@@ -187,7 +187,7 @@ public class Winter_Furnace extends BlockContainer {
      */
     public TileEntity createNewTileEntity(World worldIn, int meta)
     {
-        return new TEWinterFurnace();
+        return new TEWinter_Furnace();
     }
 
     /**
@@ -210,9 +210,9 @@ public class Winter_Furnace extends BlockContainer {
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TEWinterFurnace)
+            if (tileentity instanceof TEWinter_Furnace)
             {
-                ((TEWinterFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
+                ((TEWinter_Furnace)tileentity).setCustomInventoryName(stack.getDisplayName());
             }
         }
     }
@@ -226,9 +226,9 @@ public class Winter_Furnace extends BlockContainer {
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TEWinterFurnace)
+            if (tileentity instanceof TEWinter_Furnace)
             {
-                InventoryHelper.dropInventoryItems(worldIn, pos, (TEWinterFurnace)tileentity);
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TEWinter_Furnace)tileentity);
                 worldIn.updateComparatorOutputLevel(pos, this);
             }
         }

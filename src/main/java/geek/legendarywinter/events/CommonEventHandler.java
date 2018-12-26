@@ -1,15 +1,15 @@
 package geek.legendarywinter.events;
 
 import geek.legendarywinter.LegendaryWinter;
-import geek.legendarywinter.blocks.FakeSnow;
-import geek.legendarywinter.blocks.OreSnowstone;
+import geek.legendarywinter.blocks.Strange_Snow;
+import geek.legendarywinter.blocks.Polarium_Ore;
 import geek.legendarywinter.blocks.Winter_Furnace;
 import geek.legendarywinter.blocks.Winterstone;
 import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.init.FluidsRegistry;
-import geek.legendarywinter.items.FakeSnowball;
+import geek.legendarywinter.items.Strange_Snowball;
 import geek.legendarywinter.items.IngotSnowstone;
-import geek.legendarywinter.tileentity.TEWinterFurnace;
+import geek.legendarywinter.tileentity.TEWinter_Furnace;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -65,12 +65,12 @@ public final class CommonEventHandler {
 	 */
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-		event.getRegistry().register(setupBlock(new OreSnowstone(), "snowstone_ore"));
-		event.getRegistry().register(setupBlock(new FakeSnow(), "fakesnow"));
+		event.getRegistry().register(setupBlock(new Polarium_Ore(), "snowstone_ore"));
+		event.getRegistry().register(setupBlock(new Strange_Snow(), "fakesnow"));
 		event.getRegistry().register(setupBlock(new Winterstone(), "winterstone"));
 		event.getRegistry().register(setupBlock(new Winter_Furnace(false), "snowfurnace"));
 		event.getRegistry().register(setupBlock(new Winter_Furnace(true), "lit_snowfurnace"));
-		GameRegistry.registerTileEntity(TEWinterFurnace.class, new ResourceLocation(LegendaryWinter.MODID + ":snowfurnace"));
+		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(LegendaryWinter.MODID + ":snowfurnace"));
 		event.getRegistry().register(setupBlock(
 				new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}
@@ -86,7 +86,7 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.FakeSnow));
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.SnowFurnace));
 	  //event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
-		event.getRegistry().register(setupItem(new FakeSnowball(), "fakesnowballitem"));
+		event.getRegistry().register(setupItem(new Strange_Snowball(), "fakesnowballitem"));
 		event.getRegistry().register(setupItem(new IngotSnowstone(), "snowstone_ingot"));
 	}
 

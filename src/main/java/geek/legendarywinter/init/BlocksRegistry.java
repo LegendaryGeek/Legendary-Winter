@@ -14,13 +14,13 @@ public class BlocksRegistry {
 		//
 	}
 	@ObjectHolder("legendarywinter:fakesnow")
-	public static final Block FakeSnow = new FakeSnow();
+	public static final Block FakeSnow = new Strange_Snow();
 	
 	@ObjectHolder("legendarywinter:snowstone_block")
-	public static final Block SnowStone = new SnowStoneBlock();
+	public static final Block SnowStone = new Snowstone_Block();
 	
 	@ObjectHolder("legendarywinter:snowstone_ore")
-	public static final Block OreSnow = new OreSnowstone();
+	public static final Block OreSnow = new Polarium_Ore();
 	
 	@ObjectHolder("legendarywinter:winterstone")
 	public static final Block WinterStone = new Winterstone();

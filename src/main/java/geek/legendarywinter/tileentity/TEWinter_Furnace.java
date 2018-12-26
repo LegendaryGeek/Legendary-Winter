@@ -5,7 +5,7 @@ import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.init.ItemsRegistery;
 import geek.legendarywinter.inventory.containerSnowFurnace;
 import geek.legendarywinter.inventory.slotSnowFurnaceFuel;
-import geek.legendarywinter.items.recipe.SnowFurnaceRecipes;
+import geek.legendarywinter.items.recipe.Winter_Furnace_Recipes;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -30,7 +30,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TEWinterFurnace extends TileEntityLockable implements ITickable, ISidedInventory
+public class TEWinter_Furnace extends TileEntityLockable implements ITickable, ISidedInventory
 {
     private static final int[] SLOTS_TOP = new int[] {0};
     private static final int[] SLOTS_BOTTOM = new int[] {2, 1};
@@ -131,7 +131,7 @@ public class TEWinterFurnace extends TileEntityLockable implements ITickable, IS
 
     public static void registerFixesFurnace(DataFixer fixer)
     {
-        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TEWinterFurnace.class, new String[] {"Items"}));
+        fixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TEWinter_Furnace.class, new String[] {"Items"}));
     }
 
     public void readFromNBT(NBTTagCompound compound)
@@ -281,7 +281,7 @@ public class TEWinterFurnace extends TileEntityLockable implements ITickable, IS
         }
         else
         {
-            ItemStack itemstack = SnowFurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks.get(0));
+            ItemStack itemstack = Winter_Furnace_Recipes.instance().getSmeltingResult(this.furnaceItemStacks.get(0));
 
             if (itemstack.isEmpty())
             {
@@ -319,7 +319,7 @@ public class TEWinterFurnace extends TileEntityLockable implements ITickable, IS
         if (this.canSmelt())
         {
             ItemStack itemstack = this.furnaceItemStacks.get(0);
-            ItemStack itemstack1 = SnowFurnaceRecipes.instance().getSmeltingResult(itemstack);
+            ItemStack itemstack1 = Winter_Furnace_Recipes.instance().getSmeltingResult(itemstack);
             ItemStack itemstack2 = this.furnaceItemStacks.get(2);
 
             if (itemstack2.isEmpty())

@@ -6,9 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class SnowStoneBlock extends Block {
+public class Snowstone_Block extends Block {
 
-	public SnowStoneBlock() {
+	public Snowstone_Block() {
 		super(Material.ROCK);
 		//this.setRegistryName(WinterCraft.MODID + "." + "fakesnow");
 		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);

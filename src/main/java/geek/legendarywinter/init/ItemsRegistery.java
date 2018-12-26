@@ -10,7 +10,7 @@ public class ItemsRegistery {
 	 *
 	 */
 	@ObjectHolder("legendarywinter:fakesnowballitem")
-	public static final Item FakeSnowBallItem = new FakeSnowball();
+	public static final Item FakeSnowBallItem = new Strange_Snowball();
 	
 	@ObjectHolder("legendarywinter:snowstone_ingot")
 	public static final Item IngotSnowy = new IngotSnowstone();
