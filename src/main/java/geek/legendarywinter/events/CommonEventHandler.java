@@ -65,14 +65,13 @@ public final class CommonEventHandler {
 	 */
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-		event.getRegistry().register(setupBlock(new Polarium_Ore(), "snowstone_ore"));
-		event.getRegistry().register(setupBlock(new Strange_Snow(), "fakesnow"));
+		event.getRegistry().register(setupBlock(new Polarium_Ore(), "polarium_ore"));
+		event.getRegistry().register(setupBlock(new Strange_Snow(), "strange_snow"));
 		event.getRegistry().register(setupBlock(new Winterstone(), "winterstone"));
-		event.getRegistry().register(setupBlock(new Winter_Furnace(false), "snowfurnace"));
-		event.getRegistry().register(setupBlock(new Winter_Furnace(true), "lit_snowfurnace"));
-		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(LegendaryWinter.MODID + ":snowfurnace"));
-		event.getRegistry().register(setupBlock(
-				new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
+		event.getRegistry().register(setupBlock(new Winter_Furnace(false), "winterfurnace"));
+		event.getRegistry().register(setupBlock(new Winter_Furnace(true), "lit_winterfurnace"));
+		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(LegendaryWinter.MODID + ":winterfurnace"));
+		//event.getRegistry().register(setupBlock(new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}
 
 	/**
@@ -81,9 +80,9 @@ public final class CommonEventHandler {
 	 */
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
-		event.getRegistry().register(setupItemBlock(BlocksRegistry.OreSnow));
+		event.getRegistry().register(setupItemBlock(BlocksRegistry.Polarium_Ore));
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.WinterStone));
-		event.getRegistry().register(setupItemBlock(BlocksRegistry.FakeSnow));
+		event.getRegistry().register(setupItemBlock(BlocksRegistry.StrangeSnow));
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.SnowFurnace));
 	  //event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 		event.getRegistry().register(setupItem(new Strange_Snowball(), "fakesnowballitem"));

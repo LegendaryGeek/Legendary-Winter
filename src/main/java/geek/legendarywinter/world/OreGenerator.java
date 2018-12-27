@@ -26,7 +26,7 @@ public class OreGenerator implements IWorldGenerator {
 	}
 
 	private void generateOverworld(Random random, int chunkX, int chunkY, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		generateOre(BlocksRegistry.OreSnow.getDefaultState(), world, random, chunkX * 16, chunkY * 16, 5, 100, 1 + random.nextInt(4), 10);
+		generateOre(BlocksRegistry.StrangeSnow.getDefaultState(), world, random, chunkX * 16, chunkY * 16, 5, 100, 1 + random.nextInt(4), 10);
 		generateOre(BlocksRegistry.WinterStone.getDefaultState(), world, random, chunkX * 16, chunkY * 16, 4, 32, 1 + random.nextInt(10), 30);
 		
 	}

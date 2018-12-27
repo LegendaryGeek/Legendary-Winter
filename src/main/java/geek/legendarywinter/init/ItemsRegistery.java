@@ -9,10 +9,10 @@ public class ItemsRegistery {
 	/**
 	 *
 	 */
-	@ObjectHolder("legendarywinter:fakesnowballitem")
-	public static final Item FakeSnowBallItem = new Strange_Snowball();
+	@ObjectHolder("legendarywinter:strangesnowball")
+	public static final Item strangesnowball = new Strange_Snowball();
 	
-	@ObjectHolder("legendarywinter:snowstone_ingot")
+	@ObjectHolder("legendarywinter:polarium_ingot")
 	public static final Item IngotSnowy = new IngotSnowstone();
 
 }

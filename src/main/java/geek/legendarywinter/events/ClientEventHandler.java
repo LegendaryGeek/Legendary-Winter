@@ -34,12 +34,12 @@ public class ClientEventHandler {
 	 */
 	@SubscribeEvent
 	public static void registerModels(final ModelRegistryEvent event) {
-		registerModel(Item.getItemFromBlock(BlocksRegistry.FakeSnow));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.StrangeSnow));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.WinterStone));
-		registerModel(Item.getItemFromBlock(BlocksRegistry.OreSnow));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.Polarium_Ore));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.SnowFurnace));
 		//registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
-		registerModel(ItemsRegistery.FakeSnowBallItem);
+		registerModel(ItemsRegistery.strangesnowball);
 		registerModel(ItemsRegistery.IngotSnowy);
 	}
 

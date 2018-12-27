@@ -27,7 +27,6 @@ public class LegendaryWinter
     public static final String MODID = "legendarywinter";
     public static final String NAME = "Legendary Winter";
     public static final String VERSION = "1.0";
-    public static ArrayList<Block> ore = new ArrayList<Block>();
 
     public static Logger logger;
 

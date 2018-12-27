@@ -360,11 +360,11 @@ public class TEWinter_Furnace extends TileEntityLockable implements ITickable, I
             {
                 return 100;
             }
-            else if (item == Item.getItemFromBlock(BlocksRegistry.FakeSnow))
+            else if (item == Item.getItemFromBlock(BlocksRegistry.StrangeSnow))
             {
                 return 300;
             }
-            else if (item == ItemsRegistery.FakeSnowBallItem)
+            else if (item == ItemsRegistery.strangesnowball)
                     {
                         return 2400;
                     }

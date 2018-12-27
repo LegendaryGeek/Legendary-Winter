@@ -12,7 +12,7 @@ public class Snowstone_Block extends Block {
 		super(Material.ROCK);
 		//this.setRegistryName(WinterCraft.MODID + "." + "fakesnow");
 		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-
+		this.setHarvestLevel("pickaxe" , 0);
 		// TODO Auto-generated constructor stub
 	}
 

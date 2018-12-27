@@ -15,12 +15,12 @@ public class Strange_Snow extends Block {
 		super(Material.ROCK);
 		//this.setRegistryName(WinterCraft.MODID + "." + "fakesnow");
 		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-		
+		this.setHarvestLevel("shovel" , 0);
 		// TODO Auto-generated constructor stub
 	}
 	@Override
 	 public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	    {
-	        return ItemsRegistery.FakeSnowBallItem;
+	        return ItemsRegistery.strangesnowball;
 	    }
 }
