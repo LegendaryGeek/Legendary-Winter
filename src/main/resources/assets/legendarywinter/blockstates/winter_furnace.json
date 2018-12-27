@@ -1,8 +1,8 @@
 {
     "variants": {
-        "facing=north": { "model": "legendarywinter:snowfurnace" },
-        "facing=south": { "model": "legendarywinter:snowfurnace", "y": 180 },
-        "facing=west":  { "model": "legendarywinter:snowfurnace", "y": 270 },
-        "facing=east":  { "model": "legendarywinter:snowfurnace", "y": 90 }
+        "facing=north": { "model": "legendarywinter:winter_furnace" },
+        "facing=south": { "model": "legendarywinter:winter_furnace", "y": 180 },
+        "facing=west":  { "model": "legendarywinter:winter_furnace", "y": 270 },
+        "facing=east":  { "model": "legendarywinter:winter_furnace", "y": 90 }
     }
 }

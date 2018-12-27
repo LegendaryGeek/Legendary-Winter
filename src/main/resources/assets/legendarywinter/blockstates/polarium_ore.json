@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "legendarywinter:polarium_ore"
+  },
+  "variants": {
+    "normal": [{"model": "legendarywinter:polarium_ore"}],
+    "inventory": [{"model": "legendarywinter:polarium_ore"}]
+    }
+}

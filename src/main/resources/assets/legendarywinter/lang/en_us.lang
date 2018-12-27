@@ -1,7 +1,7 @@
-tile.legendarywinter.snowstone_ore.name=Polarium
-tile.legendarywinter.fakesnow.name=Fake Snow
+tile.legendarywinter.polarium_ore.name=Polarium Ore
+tile.legendarywinter.strange_snow.name=Strange Snow
 tile.legendarywinter.snowfurnace.name=Winter Furnace
 tile.legendarywinter.winterstone.name=Winter Stone
 
-item.legendarywinter.fakesnowballitem.name=Fake Snowball
+item.legendarywinter.strange_snowball.name=Strange Snowball
 item.legendarywinter.snowstone_ingot.name=Snowstone Ingot
