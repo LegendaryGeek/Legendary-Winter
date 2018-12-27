@@ -85,8 +85,8 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.StrangeSnow));
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.SnowFurnace));
 	  //event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
-		event.getRegistry().register(setupItem(new Strange_Snowball(), "fakesnowballitem"));
-		event.getRegistry().register(setupItem(new Polarium_Ingot(), "snowstone_ingot"));
+		event.getRegistry().register(setupItem(new Strange_Snowball(), "strange_snowball"));
+		event.getRegistry().register(setupItem(new Polarium_Ingot(), "polarium_ingot"));
 	}
 
 	/**

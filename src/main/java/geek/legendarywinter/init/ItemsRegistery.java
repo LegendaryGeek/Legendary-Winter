@@ -9,7 +9,7 @@ public class ItemsRegistery {
 	/**
 	 *
 	 */
-	@ObjectHolder("legendarywinter:strangesnowball")
+	@ObjectHolder("legendarywinter:strange_snowball")
 	public static final Item strangesnowball = new Strange_Snowball();
 	
 	@ObjectHolder("legendarywinter:polarium_ingot")
