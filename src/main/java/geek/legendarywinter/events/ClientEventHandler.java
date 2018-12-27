@@ -40,7 +40,7 @@ public class ClientEventHandler {
 		registerModel(Item.getItemFromBlock(BlocksRegistry.SnowFurnace));
 		//registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
 		registerModel(ItemsRegistery.strangesnowball);
-		registerModel(ItemsRegistery.IngotSnowy);
+		registerModel(ItemsRegistery.polarium_ingot);
 	}
 
 	/**

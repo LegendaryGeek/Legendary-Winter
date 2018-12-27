@@ -21,7 +21,7 @@ public class GeekTab extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public ItemStack createIcon() {
 		// TODO Auto-generated method stub
-		return new ItemStack(ItemsRegistery.IngotSnowy);
+		return new ItemStack(ItemsRegistery.polarium_ingot);
 	}
 	
 	public CreativeTabs getCTab() {
