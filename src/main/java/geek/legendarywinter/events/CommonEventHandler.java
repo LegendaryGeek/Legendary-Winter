@@ -8,7 +8,7 @@ import geek.legendarywinter.blocks.Winterstone;
 import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.init.FluidsRegistry;
 import geek.legendarywinter.items.Strange_Snowball;
-import geek.legendarywinter.items.IngotSnowstone;
+import geek.legendarywinter.items.Polarium_Ingot;
 import geek.legendarywinter.tileentity.TEWinter_Furnace;
 
 import net.minecraft.block.Block;
@@ -86,7 +86,7 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupItemBlock(BlocksRegistry.SnowFurnace));
 	  //event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 		event.getRegistry().register(setupItem(new Strange_Snowball(), "fakesnowballitem"));
-		event.getRegistry().register(setupItem(new IngotSnowstone(), "snowstone_ingot"));
+		event.getRegistry().register(setupItem(new Polarium_Ingot(), "snowstone_ingot"));
 	}
 
 	/**

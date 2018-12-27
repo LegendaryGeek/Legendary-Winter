@@ -13,6 +13,6 @@ public class ItemsRegistery {
 	public static final Item strangesnowball = new Strange_Snowball();
 	
 	@ObjectHolder("legendarywinter:polarium_ingot")
-	public static final Item IngotSnowy = new IngotSnowstone();
+	public static final Item IngotSnowy = new Polarium_Ingot();
 
 }
