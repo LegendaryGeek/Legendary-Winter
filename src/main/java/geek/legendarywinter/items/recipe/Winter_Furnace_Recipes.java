@@ -25,33 +25,33 @@ public class Winter_Furnace_Recipes {
     }
     
     private Winter_Furnace_Recipes() {
-    	this.addSmeltingRecipeForBlock(Blocks.SNOW, new ItemStack(ItemsRegistery.polarium_ingot, 2), 5.5f);
-    	this.addSmeltingRecipe(new ItemStack(ItemsRegistery.strangesnowball), new ItemStack(ItemsRegistery.polarium_ingot), 10000.5f);
-    	this.addSmeltingRecipeForBlock(Blocks.ICE, new ItemStack(Blocks.PACKED_ICE), 5.5f);
+    	this.addFreezingRecipeForBlock(Blocks.SNOW, new ItemStack(ItemsRegistery.polarium_ingot, 2), 5.5f);
+    	this.addFreezingRecipe(new ItemStack(ItemsRegistery.strangesnowball), new ItemStack(ItemsRegistery.polarium_ingot), 10000.5f);
+    	this.addFreezingRecipeForBlock(Blocks.ICE, new ItemStack(Blocks.PACKED_ICE), 5.5f);
     }
 	
     /**
      * Adds a smelting recipe, where the input item is an instance of Block.
      */
-    public void addSmeltingRecipeForBlock(Block input, ItemStack stack, float experience)
+    public void addFreezingRecipeForBlock(Block input, ItemStack stack, float experience)
     {
-        this.addSmelting(Item.getItemFromBlock(input), stack, experience);
+        this.addFreeze(Item.getItemFromBlock(input), stack, experience);
     }
 
     /**
      * Adds a smelting recipe using an Item as the input item.
      */
-    public void addSmelting(Item input, ItemStack stack, float experience)
+    public void addFreeze(Item input, ItemStack stack, float experience)
     {
-        this.addSmeltingRecipe(new ItemStack(input, 1, 32767), stack, experience);
+        this.addFreezingRecipe(new ItemStack(input, 1, 32767), stack, experience);
     }
 
     /**
      * Adds a smelting recipe using an ItemStack as the input for the recipe.
      */
-    public void addSmeltingRecipe(ItemStack input, ItemStack stack, float experience)
+    public void addFreezingRecipe(ItemStack input, ItemStack stack, float experience)
     {
-        if (getSmeltingResult(input) != ItemStack.EMPTY) { net.minecraftforge.fml.common.FMLLog.log.info("Ignored Freezing recipe with conflicting input: {} = {}", input, stack); return; }
+        if (getFreezingResult(input) != ItemStack.EMPTY) { net.minecraftforge.fml.common.FMLLog.log.info("Ignored Freezing recipe with conflicting input: {} = {}", input, stack); return; }
         this.smeltingList.put(input, stack);
         this.experienceList.put(stack, Float.valueOf(experience));
     }
@@ -59,7 +59,7 @@ public class Winter_Furnace_Recipes {
     /**
      * Returns the smelting result of an item.
      */
-    public ItemStack getSmeltingResult(ItemStack stack)
+    public ItemStack getFreezingResult(ItemStack stack)
     {
         for (Entry<ItemStack, ItemStack> entry : this.smeltingList.entrySet())
         {

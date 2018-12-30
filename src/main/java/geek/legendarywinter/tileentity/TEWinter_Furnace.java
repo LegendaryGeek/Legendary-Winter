@@ -281,7 +281,7 @@ public class TEWinter_Furnace extends TileEntityLockable implements ITickable, I
         }
         else
         {
-            ItemStack itemstack = Winter_Furnace_Recipes.instance().getSmeltingResult(this.furnaceItemStacks.get(0));
+            ItemStack itemstack = Winter_Furnace_Recipes.instance().getFreezingResult(this.furnaceItemStacks.get(0));
 
             if (itemstack.isEmpty())
             {
@@ -319,7 +319,7 @@ public class TEWinter_Furnace extends TileEntityLockable implements ITickable, I
         if (this.canSmelt())
         {
             ItemStack itemstack = this.furnaceItemStacks.get(0);
-            ItemStack itemstack1 = Winter_Furnace_Recipes.instance().getSmeltingResult(itemstack);
+            ItemStack itemstack1 = Winter_Furnace_Recipes.instance().getFreezingResult(itemstack);
             ItemStack itemstack2 = this.furnaceItemStacks.get(2);
 
             if (itemstack2.isEmpty())
