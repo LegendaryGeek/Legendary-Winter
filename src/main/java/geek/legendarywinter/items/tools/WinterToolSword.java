@@ -7,7 +7,7 @@ public class WinterToolSword extends ItemSword {
 
 	public WinterToolSword() {
 		super(ToolMaterial.DIAMOND);
-		this.setHarvestLevel("pickaxe", 3);
+		this.setHarvestLevel("sword", 3);
 		this.setDamage(new ItemStack(this), 8);
 		// TODO Auto-generated constructor stub
 	}
