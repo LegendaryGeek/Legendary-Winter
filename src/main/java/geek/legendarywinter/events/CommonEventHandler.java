@@ -1,24 +1,21 @@
 package geek.legendarywinter.events;
 
 import geek.legendarywinter.LegendaryWinter;
-import geek.legendarywinter.blocks.Strange_Snow;
 import geek.legendarywinter.blocks.Polarium_Ore;
+import geek.legendarywinter.blocks.Strange_Snow;
 import geek.legendarywinter.blocks.Winter_Furnace;
 import geek.legendarywinter.blocks.Winterstone;
 import geek.legendarywinter.init.BlocksRegistry;
-import geek.legendarywinter.init.FluidsRegistry;
-import geek.legendarywinter.items.Strange_Snowball;
 import geek.legendarywinter.items.Polarium_Ingot;
+import geek.legendarywinter.items.Strange_Snowball;
+import geek.legendarywinter.items.tools.*;
 import geek.legendarywinter.tileentity.TEWinter_Furnace;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -87,6 +84,10 @@ public final class CommonEventHandler {
 	  //event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 		event.getRegistry().register(setupItem(new Strange_Snowball(), "strange_snowball"));
 		event.getRegistry().register(setupItem(new Polarium_Ingot(), "polarium_ingot"));
+		event.getRegistry().register(setupItem(new WinterToolSword(), "polarium_sword"));
+		event.getRegistry().register(setupItem(new WinterToolShovel(), "polarium_shovel"));
+		event.getRegistry().register(setupItem(new WinterToolPickaxe(), "polarium_pickaxe"));
+		event.getRegistry().register(setupItem(new WinterToolAxe(), "polarium_axe"));
 	}
 
 	/**

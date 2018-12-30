@@ -41,6 +41,10 @@ public class ClientEventHandler {
 		//registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
 		registerModel(ItemsRegistery.strangesnowball);
 		registerModel(ItemsRegistery.polarium_ingot);
+		registerModel(ItemsRegistery.polarium_axe);
+		registerModel(ItemsRegistery.polarium_pickaxe);
+		registerModel(ItemsRegistery.polarium_shovel);
+		registerModel(ItemsRegistery.polarium_sword);
 	}
 
 	/**

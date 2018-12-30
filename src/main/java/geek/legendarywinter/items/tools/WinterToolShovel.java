@@ -4,8 +4,8 @@ import net.minecraft.item.ItemSpade;
 
 public class WinterToolShovel extends ItemSpade {
 
-	public WinterToolShovel(ToolMaterial material) {
-		super(material);
+	public WinterToolShovel() {
+		super(ToolMaterial.DIAMOND);
 		
 	}
 

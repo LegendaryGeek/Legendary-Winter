@@ -5,10 +5,10 @@ import net.minecraft.item.ItemSword;
 
 public class WinterToolSword extends ItemSword {
 
-	public WinterToolSword(ToolMaterial material, int damage, ItemStack stack) {
-		super(material);
-		this.setDamage(stack, damage);
-		this.setHarvestLevel(getToolMaterialName(), 0);
+	public WinterToolSword() {
+		super(ToolMaterial.DIAMOND);
+		this.setHarvestLevel("pickaxe", 3);
+		this.setDamage(new ItemStack(this), 8);
 		// TODO Auto-generated constructor stub
 	}
 

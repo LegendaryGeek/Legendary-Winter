@@ -4,8 +4,9 @@ import net.minecraft.item.ItemAxe;
 
 public class WinterToolAxe extends ItemAxe {
 
-	protected WinterToolAxe(ToolMaterial material, float damage, float speed) {
-		super(material, damage, speed);
+	public WinterToolAxe() {
+		super(ToolMaterial.DIAMOND, 8.1f, 90);
+		
 		// TODO Auto-generated constructor stub
 	}
 
