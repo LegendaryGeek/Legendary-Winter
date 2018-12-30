@@ -9,14 +9,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class GeekTab extends CreativeTabs {
 
-
+	public static GeekTab instance = null;
 	private static final String label = "LegendaryWinter";
 
 	public GeekTab() {
 		super(label);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public static void init()
+	{
+		instance = new GeekTab();
+	}
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack createIcon() {

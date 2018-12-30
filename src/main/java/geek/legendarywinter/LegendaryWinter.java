@@ -1,14 +1,10 @@
 package geek.legendarywinter;
 
-import java.util.ArrayList;
-
 import org.apache.logging.log4j.Logger;
 
 import geek.legendarywinter.proxy.Proxy;
 import geek.legendarywinter.util.GeekTab;
 import geek.legendarywinter.world.OreGenerator;
-
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -35,6 +31,7 @@ public class LegendaryWinter
     public void preInit(FMLPreInitializationEvent event)
     {
     	proxy.preInit(event);
+    	GeekTab.init();
         logger = event.getModLog();
         GameRegistry.registerWorldGenerator(new OreGenerator(), 3);
         
@@ -44,7 +41,7 @@ public class LegendaryWinter
     public void init(FMLInitializationEvent event)
     {
     	proxy.init(event);
-    	GeekTab instance = new GeekTab();
+    	
         logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
     

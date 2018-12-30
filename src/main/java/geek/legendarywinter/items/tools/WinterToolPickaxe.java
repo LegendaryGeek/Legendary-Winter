@@ -10,7 +10,7 @@ public class WinterToolPickaxe extends ItemPickaxe {
 		super(ToolMaterial.DIAMOND);
 		this.setHarvestLevel("pickaxe", 3);
 		this.setDamage(new ItemStack(this), 8);
-		this.setCreativeTab(new GeekTab());
+		this.setCreativeTab(GeekTab.instance);
 	}
 
 }

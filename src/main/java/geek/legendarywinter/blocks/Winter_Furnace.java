@@ -4,7 +4,7 @@ import java.util.Random;
 
 import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.tileentity.TEWinter_Furnace;
-
+import geek.legendarywinter.util.GeekTab;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -42,7 +42,7 @@ public class Winter_Furnace extends BlockContainer {
     {
         super(Material.ROCK);
         this.setHarvestLevel("pickaxe", 0);
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
+        this.setCreativeTab(GeekTab.instance);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
     }

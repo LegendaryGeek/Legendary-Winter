@@ -10,7 +10,7 @@ public class WinterToolSword extends ItemSword {
 		super(ToolMaterial.DIAMOND);
 		this.setHarvestLevel("sword", 3);
 		this.setDamage(new ItemStack(this), 8);
-		this.setCreativeTab(new GeekTab());
+		this.setCreativeTab(GeekTab.instance);
 	}
 
 	

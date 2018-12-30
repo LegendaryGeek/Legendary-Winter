@@ -8,7 +8,7 @@ public class WinterToolShovel extends ItemSpade {
 	public WinterToolShovel() {
 		super(ToolMaterial.DIAMOND);
 		this.setHarvestLevel("shovel", 3);
-		this.setCreativeTab(new GeekTab());
+		this.setCreativeTab(GeekTab.instance);
 	}
 
 }

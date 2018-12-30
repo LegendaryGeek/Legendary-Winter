@@ -3,6 +3,7 @@ package geek.legendarywinter.blocks;
 import java.util.Random;
 
 import geek.legendarywinter.init.ItemsRegistery;
+import geek.legendarywinter.util.GeekTab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,7 +15,7 @@ public class Strange_Snow extends Block {
 	public Strange_Snow() {
 		super(Material.ROCK);
 		//this.setRegistryName(WinterCraft.MODID + "." + "fakesnow");
-		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+		this.setCreativeTab(GeekTab.instance);
 		this.setHarvestLevel("shovel" , 0);
 		// TODO Auto-generated constructor stub
 	}
