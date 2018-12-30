@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GeekTab extends CreativeTabs {
 
 
-	private static final String label = "Legendary LegendaryWinter";
+	private static final String label = "LegendaryWinter";
 
 	public GeekTab() {
 		super(label);

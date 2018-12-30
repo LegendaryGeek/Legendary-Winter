@@ -1,5 +1,6 @@
 package geek.legendarywinter.items.tools;
 
+import geek.legendarywinter.util.GeekTab;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
@@ -9,7 +10,7 @@ public class WinterToolSword extends ItemSword {
 		super(ToolMaterial.DIAMOND);
 		this.setHarvestLevel("sword", 3);
 		this.setDamage(new ItemStack(this), 8);
-		// TODO Auto-generated constructor stub
+		this.setCreativeTab(new GeekTab());
 	}
 
 	

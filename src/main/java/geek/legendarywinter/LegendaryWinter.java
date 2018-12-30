@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.Logger;
 
 import geek.legendarywinter.proxy.Proxy;
+import geek.legendarywinter.util.GeekTab;
 import geek.legendarywinter.world.OreGenerator;
 
 import net.minecraft.block.Block;
@@ -43,6 +44,7 @@ public class LegendaryWinter
     public void init(FMLInitializationEvent event)
     {
     	proxy.init(event);
+    	GeekTab instance = new GeekTab();
         logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
     
