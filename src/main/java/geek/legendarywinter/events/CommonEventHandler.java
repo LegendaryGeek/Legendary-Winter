@@ -8,6 +8,7 @@ import geek.legendarywinter.blocks.Winterstone;
 import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.items.Polarium_Ingot;
 import geek.legendarywinter.items.Strange_Snowball;
+import geek.legendarywinter.items.WinterJam;
 import geek.legendarywinter.items.tools.*;
 import geek.legendarywinter.tileentity.TEWinter_Furnace;
 import net.minecraft.block.Block;
@@ -88,6 +89,7 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupItem(new WinterToolShovel(), "polarium_shovel"));
 		event.getRegistry().register(setupItem(new WinterToolPickaxe(), "polarium_pickaxe"));
 		event.getRegistry().register(setupItem(new WinterToolAxe(), "polarium_axe"));
+		event.getRegistry().register(setupItem(new WinterJam(), "winterjam"));
 	}
 
 	/**

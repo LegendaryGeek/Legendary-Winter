@@ -45,6 +45,7 @@ public class ClientEventHandler {
 		registerModel(ItemsRegistery.polarium_pickaxe);
 		registerModel(ItemsRegistery.polarium_shovel);
 		registerModel(ItemsRegistery.polarium_sword);
+		registerModel(ItemsRegistery.winterjam);
 	}
 
 	/**

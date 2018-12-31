@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "b"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:snow"
+    },
+	"s": {
+	 "item": "minecraft:glass_bottle"
+	}
+  },
+  "result": {
+    "item": "legendarywinter:polarium_sword"
+  }
+}
