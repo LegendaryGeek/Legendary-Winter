@@ -14,6 +14,7 @@ public class GeekTab extends CreativeTabs {
 
 	public GeekTab() {
 		super(label);
+		
 		// TODO Auto-generated constructor stub
 	}
 	
