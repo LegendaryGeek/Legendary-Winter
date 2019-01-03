@@ -3,6 +3,7 @@ package geek.legendarywinter.init;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import geek.legendarywinter.items.*;
+import geek.legendarywinter.items.armor.*;
 import geek.legendarywinter.items.tools.*;
 
 public class ItemsRegistery {
@@ -30,5 +31,11 @@ public class ItemsRegistery {
 	
 	@ObjectHolder("legendarywinter:polarium_axe")
 	public static final Item polarium_axe = new WinterToolAxe();
+	
+	@ObjectHolder("legendarywinter:polarium_helmet")
+	public static final Item polarium_helmet = new PolariumHelmet();
+	
+	@ObjectHolder("legendarywinter:polarium_helmet")
+	public static final Item polarium_chestplate = new PolariumChestplate();
 	
 }
