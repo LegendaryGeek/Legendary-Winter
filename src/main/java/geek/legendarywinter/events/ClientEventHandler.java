@@ -46,6 +46,10 @@ public class ClientEventHandler {
 		registerModel(ItemsRegistery.polarium_shovel);
 		registerModel(ItemsRegistery.polarium_sword);
 		registerModel(ItemsRegistery.winterjam);
+		registerModel(ItemsRegistery.polarium_booties);
+		registerModel(ItemsRegistery.polarium_chestplate);
+		registerModel(ItemsRegistery.polarium_helmet);
+		registerModel(ItemsRegistery.polarium_leggings);
 	}
 
 	/**

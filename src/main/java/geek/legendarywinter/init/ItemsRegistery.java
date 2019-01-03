@@ -35,7 +35,13 @@ public class ItemsRegistery {
 	@ObjectHolder("legendarywinter:polarium_helmet")
 	public static final Item polarium_helmet = new PolariumHelmet();
 	
-	@ObjectHolder("legendarywinter:polarium_helmet")
+	@ObjectHolder("legendarywinter:polarium_chestplate")
 	public static final Item polarium_chestplate = new PolariumChestplate();
+	
+	@ObjectHolder("legendarywinter:polarium_leggings")
+	public static final Item polarium_leggings = new PolariumLeggings();
+	
+	@ObjectHolder("legendarywinter:polarium_booties")
+	public static final Item polarium_booties = new PolariumBooties();
 	
 }
