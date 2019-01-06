@@ -89,6 +89,6 @@ public class EnchantmentWinterWalker extends Enchantment {
      */
     public boolean canApplyTogether(Enchantment ench)
     {
-        return super.canApplyTogether(ench) && ench != Enchantments.DEPTH_STRIDER;
+        return super.canApplyTogether(ench) && ench != Enchantments.DEPTH_STRIDER && ench != Enchantments.FROST_WALKER;
     }
 }
