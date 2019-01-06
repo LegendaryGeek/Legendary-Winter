@@ -5,7 +5,8 @@ import net.minecraft.item.ItemArmor;
 
 public class PolariumBooties extends ItemArmor {
 	public PolariumBooties() {
-		super(ArmorMaterial.DIAMOND, 3, EntityEquipmentSlot.HEAD);
-		// TODO Auto-generated constructor stub
+		super(ArmorMaterial.DIAMOND, 3, EntityEquipmentSlot.FEET);
+
 	}
+
 }
