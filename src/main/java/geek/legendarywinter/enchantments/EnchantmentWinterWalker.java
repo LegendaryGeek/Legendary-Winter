@@ -1,4 +1,4 @@
-package geek.legendarywinter.world;
+package geek.legendarywinter.enchantments;
 
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -19,7 +19,7 @@ public class EnchantmentWinterWalker extends Enchantment {
     public EnchantmentWinterWalker(Enchantment.Rarity rarityIn, EntityEquipmentSlot... slots)
     {
         super(rarityIn, EnumEnchantmentType.ARMOR_FEET, slots);
-        this.setName("frostWalker");
+        this.setName("WinterWalker");
     }
 
     /**
@@ -27,7 +27,7 @@ public class EnchantmentWinterWalker extends Enchantment {
      */
     public int getMinEnchantability(int enchantmentLevel)
     {
-        return enchantmentLevel * 10;
+        return enchantmentLevel * 20;
     }
 
     /**
@@ -35,7 +35,7 @@ public class EnchantmentWinterWalker extends Enchantment {
      */
     public int getMaxEnchantability(int enchantmentLevel)
     {
-        return this.getMinEnchantability(enchantmentLevel) + 15;
+        return this.getMinEnchantability(enchantmentLevel) + 60;
     }
 
     public boolean isTreasureEnchantment()
@@ -48,7 +48,7 @@ public class EnchantmentWinterWalker extends Enchantment {
      */
     public int getMaxLevel()
     {
-        return 2;
+        return 5;
     }
 
     public static void freezeNearby(EntityLivingBase living, World worldIn, BlockPos pos, int level)
@@ -69,10 +69,14 @@ public class EnchantmentWinterWalker extends Enchantment {
                     {
                         IBlockState iblockstate1 = worldIn.getBlockState(blockpos$mutableblockpos1);
 
-                        if (iblockstate1.getMaterial() == Material.WATER && (iblockstate1.getBlock() == net.minecraft.init.Blocks.WATER || iblockstate1.getBlock() == net.minecraft.init.Blocks.FLOWING_WATER) && ((Integer)iblockstate1.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.mayPlace(Blocks.FROSTED_ICE, blockpos$mutableblockpos1, false, EnumFacing.DOWN, (Entity)null))
+                        if (iblockstate1.getMaterial() == Material.WATER && (iblockstate1.getBlock() == net.minecraft.init.Blocks.WATER || iblockstate1.getBlock() == net.minecraft.init.Blocks.FLOWING_WATER) && ((Integer)iblockstate1.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.mayPlace(Blocks.ICE, blockpos$mutableblockpos1, false, EnumFacing.DOWN, (Entity)null))
                         {
-                            worldIn.setBlockState(blockpos$mutableblockpos1, Blocks.FROSTED_ICE.getDefaultState());
-                            worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.FROSTED_ICE, MathHelper.getInt(living.getRNG(), 60, 120));
+                            worldIn.setBlockState(blockpos$mutableblockpos1, Blocks.ICE.getDefaultState());
+                            worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.ICE, MathHelper.getInt(living.getRNG(), 60, 120));
+                        } else if (iblockstate1.getMaterial() == Material.LAVA && (iblockstate1.getBlock() == net.minecraft.init.Blocks.LAVA || iblockstate1.getBlock() == net.minecraft.init.Blocks.FLOWING_LAVA) && ((Integer)iblockstate1.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.mayPlace(Blocks.MAGMA, blockpos$mutableblockpos1, false, EnumFacing.DOWN, (Entity)null))
+                        {
+                            worldIn.setBlockState(blockpos$mutableblockpos1, Blocks.MAGMA.getDefaultState());
+                            worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.MAGMA, MathHelper.getInt(living.getRNG(), 60, 120));
                         }
                     }
                 }
