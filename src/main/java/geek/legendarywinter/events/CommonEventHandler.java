@@ -5,6 +5,7 @@ import geek.legendarywinter.blocks.Polarium_Ore;
 import geek.legendarywinter.blocks.Strange_Snow;
 import geek.legendarywinter.blocks.Winter_Furnace;
 import geek.legendarywinter.blocks.Winterstone;
+import geek.legendarywinter.enchantments.EnchantmentWinterWalker;
 import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.items.Polarium_Ingot;
 import geek.legendarywinter.items.Strange_Snowball;
@@ -13,6 +14,8 @@ import geek.legendarywinter.items.armor.*;
 import geek.legendarywinter.items.tools.*;
 import geek.legendarywinter.tileentity.TEWinter_Furnace;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
@@ -70,9 +73,15 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupBlock(new Winter_Furnace(false), "winterfurnace"));
 		event.getRegistry().register(setupBlock(new Winter_Furnace(true), "lit_winterfurnace"));
 		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(LegendaryWinter.MODID + ":winterfurnace"));
+		
 		//event.getRegistry().register(setupBlock(new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}
 
+	@SubscribeEvent
+	public static void registerEnchantments(final RegistryEvent.Register<Enchantment> event) {
+		event.getRegistry().register(setupEnchant(new EnchantmentWinterWalker(Enchantment.Rarity.RARE, new EntityEquipmentSlot[] {EntityEquipmentSlot.FEET}),"winter_walker"));
+	}
+	
 	/**
 	 *
 	 * @param event The Event.
@@ -91,10 +100,10 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupItem(new WinterToolPickaxe(), "polarium_pickaxe"));
 		event.getRegistry().register(setupItem(new WinterToolAxe(), "polarium_axe"));
 		event.getRegistry().register(setupItem(new WinterJam(), "winterjam"));
-		event.getRegistry().register(setupItem(new PolariumHelmet(), "polarium_helmet"));
-		event.getRegistry().register(setupItem(new PolariumChestplate(), "polarium_chestplate"));
-		event.getRegistry().register(setupItem(new PolariumLeggings(), "polarium_leggings"));
-		event.getRegistry().register(setupItem(new PolariumBooties(), "polarium_booties"));
+		//event.getRegistry().register(setupItem(new PolariumHelmet(), "polarium_helmet"));
+		//event.getRegistry().register(setupItem(new PolariumChestplate(), "polarium_chestplate"));
+		//event.getRegistry().register(setupItem(new PolariumLeggings(), "polarium_leggings"));
+		//event.getRegistry().register(setupItem(new PolariumBooties(), "polarium_booties"));
 	}
 
 	/**
@@ -146,5 +155,17 @@ public final class CommonEventHandler {
 		return item;
 	}
 	
+	/**
+	 *
+	 * @param item The Item.
+	 * @param name The Name.
+	 * @return The Item.
+	 */
+	private static Enchantment setupEnchant(final Enchantment ench,final String name) {
+		ench.setRegistryName(name);
+		LegendaryWinter.logger.fatal("!#!#!#! Enchantment registered as " + ench.getRegistryName());
+
+		return ench;
+	}
 	
 }

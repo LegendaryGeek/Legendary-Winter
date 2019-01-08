@@ -1,30 +1,44 @@
 package geek.legendarywinter.enchantments;
 
+import geek.legendarywinter.init.BlocksRegistry;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentFrostWalker;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.registry.RegistryNamespaced;
 import net.minecraft.world.World;
 
 public class EnchantmentWinterWalker extends Enchantment {
+	
     public EnchantmentWinterWalker(Enchantment.Rarity rarityIn, EntityEquipmentSlot... slots)
     {
         super(rarityIn, EnumEnchantmentType.ARMOR_FEET, slots);
         this.setName("WinterWalker");
+        
+    }
+    
+    public void onUpdate() {
+    	World worldIn;
+    	EntityPlayer living;
+    	freezeNearby(living, worldIn, living.getPosition(), 1);
     }
 
     /**
      * Returns the minimal value of enchantability needed on the enchantment level passed.
      */
+    @Override
     public int getMinEnchantability(int enchantmentLevel)
     {
         return enchantmentLevel * 20;
@@ -33,11 +47,12 @@ public class EnchantmentWinterWalker extends Enchantment {
     /**
      * Returns the maximum value of enchantability nedded on the enchantment level passed.
      */
+    @Override
     public int getMaxEnchantability(int enchantmentLevel)
     {
         return this.getMinEnchantability(enchantmentLevel) + 60;
     }
-
+    @Override
     public boolean isTreasureEnchantment()
     {
         return true;
@@ -46,14 +61,15 @@ public class EnchantmentWinterWalker extends Enchantment {
     /**
      * Returns the maximum level that the enchantment can have.
      */
+    @Override
     public int getMaxLevel()
     {
         return 5;
     }
-
+  
     public static void freezeNearby(EntityLivingBase living, World worldIn, BlockPos pos, int level)
     {
-        if (living.onGround)
+        if (living instanceof EntityPlayer)
         {
             float f = (float)Math.min(16, 2 + level);
             BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(0, 0, 0);
@@ -78,6 +94,12 @@ public class EnchantmentWinterWalker extends Enchantment {
                             worldIn.setBlockState(blockpos$mutableblockpos1, Blocks.MAGMA.getDefaultState());
                             worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.MAGMA, MathHelper.getInt(living.getRNG(), 60, 120));
                         }
+                    } else if ( iblockstate.getBlock() == Blocks.SNOW){
+                    	worldIn.setBlockState(blockpos$mutableblockpos, Blocks.PACKED_ICE.getDefaultState());
+                    	worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.PACKED_ICE, MathHelper.getInt(living.getRNG(), 60, 120));
+                    } else if ( iblockstate.getBlock() == Blocks.STONE){
+                    	worldIn.setBlockState(blockpos$mutableblockpos, BlocksRegistry.SnowStone.getDefaultState());
+                    	worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), BlocksRegistry.SnowStone, MathHelper.getInt(living.getRNG(), 60, 120));
                     }
                 }
             }
@@ -87,6 +109,7 @@ public class EnchantmentWinterWalker extends Enchantment {
     /**
      * Determines if the enchantment passed can be applyied together with this enchantment.
      */
+    @Override
     public boolean canApplyTogether(Enchantment ench)
     {
         return super.canApplyTogether(ench) && ench != Enchantments.DEPTH_STRIDER && ench != Enchantments.FROST_WALKER;

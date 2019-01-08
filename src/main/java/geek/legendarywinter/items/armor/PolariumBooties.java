@@ -6,7 +6,7 @@ import net.minecraft.item.ItemArmor;
 public class PolariumBooties extends ItemArmor {
 	public PolariumBooties() {
 		super(ArmorMaterial.DIAMOND, 3, EntityEquipmentSlot.FEET);
-
+		
 	}
 
 }
