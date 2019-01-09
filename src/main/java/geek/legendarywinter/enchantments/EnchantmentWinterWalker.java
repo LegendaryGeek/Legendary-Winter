@@ -28,12 +28,7 @@ public class EnchantmentWinterWalker extends Enchantment {
         this.setName("WinterWalker");
         
     }
-    
-    public void onUpdate() {
-    	World worldIn;
-    	EntityPlayer living;
-    	freezeNearby(living, worldIn, living.getPosition(), 1);
-    }
+
 
     /**
      * Returns the minimal value of enchantability needed on the enchantment level passed.
@@ -64,14 +59,14 @@ public class EnchantmentWinterWalker extends Enchantment {
     @Override
     public int getMaxLevel()
     {
-        return 5;
+        return 1;
     }
   
-    public static void freezeNearby(EntityLivingBase living, World worldIn, BlockPos pos, int level)
+    public static void freezeNearby(EntityPlayer living, World worldIn, BlockPos pos)
     {
         if (living instanceof EntityPlayer)
         {
-            float f = (float)Math.min(16, 2 + level);
+            float f = (float)Math.min(16, 5);
             BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(0, 0, 0);
 
             for (BlockPos.MutableBlockPos blockpos$mutableblockpos1 : BlockPos.getAllInBoxMutable(pos.add((double)(-f), -1.0D, (double)(-f)), pos.add((double)f, -1.0D, (double)f)))

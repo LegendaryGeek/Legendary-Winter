@@ -100,10 +100,10 @@ public final class CommonEventHandler {
 		event.getRegistry().register(setupItem(new WinterToolPickaxe(), "polarium_pickaxe"));
 		event.getRegistry().register(setupItem(new WinterToolAxe(), "polarium_axe"));
 		event.getRegistry().register(setupItem(new WinterJam(), "winterjam"));
-		//event.getRegistry().register(setupItem(new PolariumHelmet(), "polarium_helmet"));
-		//event.getRegistry().register(setupItem(new PolariumChestplate(), "polarium_chestplate"));
-		//event.getRegistry().register(setupItem(new PolariumLeggings(), "polarium_leggings"));
-		//event.getRegistry().register(setupItem(new PolariumBooties(), "polarium_booties"));
+		event.getRegistry().register(setupItem(new PolariumHelmet(), "polarium_helmet"));
+		event.getRegistry().register(setupItem(new PolariumChestplate(), "polarium_chestplate"));
+		event.getRegistry().register(setupItem(new PolariumLeggings(), "polarium_leggings"));
+		event.getRegistry().register(setupItem(new PolariumBooties(), "polarium_booties"));
 	}
 
 	/**
