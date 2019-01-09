@@ -1,15 +1,17 @@
 package geek.legendarywinter.items.tools;
 
+import geek.legendarywinter.LegendaryWinter;
 import geek.legendarywinter.init.ItemsRegistery;
 import geek.legendarywinter.util.GeekTab;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.crafting.RecipeRepairItem;
 
 public class WinterToolPickaxe extends ItemPickaxe {
-
+	static ToolMaterial material = LegendaryWinter.POLARIUM;
 	public WinterToolPickaxe() {
-		super(ToolMaterial.DIAMOND);
+		super(material);
 		this.setHarvestLevel("pickaxe", 3);
 		this.setDamage(new ItemStack(this), 8);
 		this.setCreativeTab(GeekTab.instance);
