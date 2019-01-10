@@ -13,7 +13,13 @@ public class WinterToolPickaxe extends ItemPickaxe {
 		this.setHarvestLevel("pickaxe", 3);
 		this.setDamage(new ItemStack(this), 10);
 		this.setCreativeTab(GeekTab.instance);
-		this.getIsRepairable(new ItemStack(ItemsRegistery.polarium_pickaxe), new ItemStack(ItemsRegistery.polarium_ingot));
 	}
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+    {
+        toRepair = new ItemStack(ItemsRegistery.polarium_pickaxe);
+        repair = new ItemStack(ItemsRegistery.polarium_ingot);
+        return true;
+    }
 
 }

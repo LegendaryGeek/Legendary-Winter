@@ -13,4 +13,12 @@ public class PolariumLeggings extends ItemArmor {
 		super(LegendaryWinter.POLARIUM_ARMOR_MATERIAL, 3, EntityEquipmentSlot.LEGS);
 		this.setCreativeTab(GeekTab.instance);
 	}
+
+@Override
+public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+{
+    toRepair = new ItemStack(ItemsRegistery.polarium_shovel);
+    repair = new ItemStack(ItemsRegistery.polarium_ingot);
+    return true;
+}
 }

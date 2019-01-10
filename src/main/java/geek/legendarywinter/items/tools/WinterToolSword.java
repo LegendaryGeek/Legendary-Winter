@@ -12,5 +12,15 @@ public class WinterToolSword extends ItemSword {
 		this.setCreativeTab(GeekTab.instance);
 		
 	}
+// <<<<<<< master
 
+// =======
+//     @Override
+//     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+//     {
+//         toRepair = new ItemStack(ItemsRegistery.polarium_sword);
+//         repair = new ItemStack(ItemsRegistery.polarium_ingot);
+//         return true;
+//     }
+// >>>>>>> master
 }
