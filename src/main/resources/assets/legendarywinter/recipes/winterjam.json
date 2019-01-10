@@ -8,11 +8,11 @@
     "#": {
       "item": "minecraft:snow"
     },
-	"s": {
+	"b": {
 	 "item": "minecraft:glass_bottle"
 	}
   },
   "result": {
-    "item": "legendarywinter:polarium_sword"
+    "item": "legendarywinter:winterjam"
   }
 }
