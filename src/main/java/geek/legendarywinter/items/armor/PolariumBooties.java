@@ -19,4 +19,11 @@ public class PolariumBooties extends ItemArmor {
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 		EnchantmentWinterWalker.freezeNearby(player, world, player.getPosition());
 	}
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+    {
+        toRepair = new ItemStack(ItemsRegistery.polarium_shovel);
+        repair = new ItemStack(ItemsRegistery.polarium_ingot);
+        return true;
+    }
 }

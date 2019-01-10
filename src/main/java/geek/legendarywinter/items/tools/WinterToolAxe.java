@@ -15,5 +15,11 @@ public class WinterToolAxe extends ItemAxe {
 		this.setCreativeTab(GeekTab.instance);
 		
 	}
-
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+    {
+        toRepair = new ItemStack(ItemsRegistery.polarium_axe);
+        repair = new ItemStack(ItemsRegistery.polarium_ingot);
+        return true;
+    }
 }
