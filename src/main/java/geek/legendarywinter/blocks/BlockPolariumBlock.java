@@ -13,6 +13,7 @@ public class BlockPolariumBlock extends Block {
 
 	public BlockPolariumBlock() {
 		super(Material.IRON);
+		setHardness(5.0F);//iron block hardness
 		this.setCreativeTab(GeekTab.instance);
 	}
 
