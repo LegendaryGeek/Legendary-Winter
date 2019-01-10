@@ -31,6 +31,12 @@ minecraft {
     // simply re-run your setup task after changing the mappings to update your workspace.
     mappings = "stable_39"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+
+
+    // Replace @VERSION@ with the actual version
+    replace "@VERSION@", project.version
+    replaceIn "geek/legendarywinter/LegendaryWinter.java"
+
 }
 
 dependencies {
