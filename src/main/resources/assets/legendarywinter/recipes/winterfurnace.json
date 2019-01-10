@@ -8,10 +8,7 @@
   "key": {
     "#": {
       "item": "legendarywinter:winterstone"
-    },
-	"s": {
-	 "item": "legendarywinter:strange_snowball"
-	}
+    }
   },
   "result": {
     "item": "legendarywinter:winterfurnace"

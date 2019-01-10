@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "polarium_ingot",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "legendarywinter:polarium_nugget"
+    }
+  },
+  "result": {
+    "item": "legendarywinter:polarium_ingot"
+  }
+}

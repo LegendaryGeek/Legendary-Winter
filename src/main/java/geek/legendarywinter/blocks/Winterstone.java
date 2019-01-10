@@ -9,7 +9,8 @@ public class Winterstone extends Block {
 
 	public Winterstone() {
 		super(Material.ROCK);
-		this.setHardness(3.0f);
+//		setHardness(1.5F);//stone hardness
+		this.setHardness(0.2F);//snow hardness
 		this.setLightLevel(1);
 		this.setHarvestLevel("pickaxe", 0);
 		this.setCreativeTab(GeekTab.instance);

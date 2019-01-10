@@ -1,22 +1,26 @@
 package geek.legendarywinter;
 
-import org.apache.logging.log4j.Logger;
-
 import geek.legendarywinter.init.ItemsRegistery;
-import geek.legendarywinter.proxy.Proxy;
+import geek.legendarywinter.proxy.IProxy;
 import geek.legendarywinter.util.GeekTab;
 import geek.legendarywinter.world.OreGenerator;
-import net.minecraft.init.Blocks;
+import net.minecraft.entity.passive.HorseArmorType;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(modid = LegendaryWinter.MODID,
 name = LegendaryWinter.NAME,
@@ -27,54 +31,52 @@ public class LegendaryWinter
 {
     public static final String MODID = "legendarywinter";
     public static final String NAME = "Legendary Winter";
-    public static final String VERSION = "1.0";
-    public static final Item.ToolMaterial POLARIUM = EnumHelper.addToolMaterial("polarium", 3, 1561, 9.5f, 5.1f, 30);
-    public static Logger logger;
+    // replaced by build.gradle
+    public static final String VERSION = "@VERSION@";
+    @Instance
+    public static LegendaryWinter instance = null;
+    public static final Item.ToolMaterial POLARIUM_TOOL_MATERIAL;
+    public static final ItemArmor.ArmorMaterial POLARIUM_ARMOR_MATERIAL;
+	public static final HorseArmorType POLARIUM_HORSE_ARMOR;
+
+    static {
+	    POLARIUM_TOOL_MATERIAL = EnumHelper.addToolMaterial(new ResourceLocation(MODID, "polarium").toString(),
+			    // DIAMOND(3, 1561, 8.0F, 3.0F, 10),
+			    3, 1561, 12F, 5F, 30);
+	    POLARIUM_ARMOR_MATERIAL = EnumHelper.addArmorMaterial(new ResourceLocation(MODID, "polarium").toString(),
+			    new ResourceLocation(MODID, "polarium").toString(),
+			    // DIAMOND("diamond", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+			    33, new int[]{3, 6, 8, 3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+	    POLARIUM_HORSE_ARMOR = EnumHelper.addHorseArmor(new ResourceLocation(MODID, "polarium").toString(),
+			    //DIAMOND(11, "diamond", "dio");
+			    new ResourceLocation(MODID, "textures/entities/horse/armor/horse_armor_polarium.png").toString(), 12);
+    }
+
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
     	proxy.preInit(event);
     	GeekTab.init();
-        logger = event.getModLog();
         GameRegistry.registerWorldGenerator(new OreGenerator(), 3);
-        POLARIUM.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
-        
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void init(FMLInitializationEvent event) {
     	proxy.init(event);
-    	
-        logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+    	// in here to make sure polarium_ingot exists (registry events are fired right before init)
+	    POLARIUM_TOOL_MATERIAL.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
+	    POLARIUM_ARMOR_MATERIAL.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
     }
-    
-    private static final class InstanceHolder {
 
-		/**
-		 * The Instance.
-		 */
-		private static final LegendaryWinter INSTANCE = new LegendaryWinter();
-	}
-    
-    /**
-	 *
-	 * @return The Mod's Instance.
-	 */
-	@Mod.InstanceFactory
-	public static LegendaryWinter instance() {
-		return InstanceHolder.INSTANCE;
-	}
-	
 	/**
 	 *
 	 */
 	@SidedProxy(
 				clientSide = "geek.legendarywinter.proxy.ClientProxy",
 				serverSide = "geek.legendarywinter.proxy.ServerProxy")
-	private static Proxy proxy = null;
-	
+	public static IProxy proxy = null;
+
 	/**
 	 *
 	 * @param event The Event.
