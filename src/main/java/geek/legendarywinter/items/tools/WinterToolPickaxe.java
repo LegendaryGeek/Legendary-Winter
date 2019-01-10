@@ -9,13 +9,13 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.crafting.RecipeRepairItem;
 
 public class WinterToolPickaxe extends ItemPickaxe {
-	static ToolMaterial material = LegendaryWinter.POLARIUM;
+	
 	public WinterToolPickaxe() {
-		super(material);
+		super(LegendaryWinter.POLARIUM);
 		this.setHarvestLevel("pickaxe", 3);
 		this.setDamage(new ItemStack(this), 8);
 		this.setCreativeTab(GeekTab.instance);
-		this.toolMaterial.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
+		this.getIsRepairable(new ItemStack(ItemsRegistery.polarium_pickaxe), new ItemStack(ItemsRegistery.polarium_ingot));
 	}
 
 }

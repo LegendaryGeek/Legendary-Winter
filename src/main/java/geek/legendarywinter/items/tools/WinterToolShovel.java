@@ -8,12 +8,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 
 public class WinterToolShovel extends ItemSpade {
-	static ToolMaterial material = LegendaryWinter.POLARIUM;
+	
 	public WinterToolShovel() {
-		super(material);
+		super(LegendaryWinter.POLARIUM);
 		this.setHarvestLevel("shovel", 3);
 		this.setCreativeTab(GeekTab.instance);
-		this.toolMaterial.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
+		
 	}
-
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+    {
+        toRepair = new ItemStack(ItemsRegistery.polarium_shovel);
+        repair = new ItemStack(ItemsRegistery.polarium_ingot);
+        return true;
+    }
 }

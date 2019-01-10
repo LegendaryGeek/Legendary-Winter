@@ -7,21 +7,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
 public class WinterToolSword extends ItemSword {
-	static ToolMaterial material = LegendaryWinter.POLARIUM;
+	
 	public WinterToolSword() {
-		super(material);
+		super(LegendaryWinter.POLARIUM);
 		this.setHarvestLevel("sword", 3);
-		this.setDamage(new ItemStack(this), 8);
 		this.setCreativeTab(GeekTab.instance);
 		
 	}
-	
-	@Override
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
-    {
-		toRepair = new ItemStack(ItemsRegistery.polarium_sword);
-		repair = new ItemStack(ItemsRegistery.polarium_ingot);
-		return true;
-    }
 	
 }
