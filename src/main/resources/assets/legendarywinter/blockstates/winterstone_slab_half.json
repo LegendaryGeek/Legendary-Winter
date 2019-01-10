@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "legendarywinter:winterstone_slab_half_bottom" },
+        "half=top,variant=default": { "model": "legendarywinter:winterstone_slab_half_top" }
+    }
+}

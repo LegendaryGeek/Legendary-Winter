@@ -1,5 +1,6 @@
 package geek.legendarywinter.util;
 
+import geek.legendarywinter.LegendaryWinter;
 import geek.legendarywinter.init.ItemsRegistery;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -10,10 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GeekTab extends CreativeTabs {
 
 	public static GeekTab instance = null;
-	private static final String label = "LegendaryWinter";
-
 	public GeekTab() {
-		super(label);
+		super(LegendaryWinter.MODID);
 		
 		// TODO Auto-generated constructor stub
 	}

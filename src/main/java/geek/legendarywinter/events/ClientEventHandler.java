@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = LegendaryWinter.MODID)
-public class ClientEventHandler {
+public final class ClientEventHandler {
 	/**
 	 *
 	 */
@@ -38,18 +38,26 @@ public class ClientEventHandler {
 		registerModel(Item.getItemFromBlock(BlocksRegistry.WinterStone));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.Polarium_Ore));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.SnowFurnace));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.SnowStone)); //TODO: should this have an item?
 		//registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
+		registerModel(Item.getItemFromBlock(BlocksRegistry.WINTERSTONE_SLAB_HALF));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.WINTERSTONE_STAIRS));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.WINTERSTONE_WALL));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.POLARIUM_BLOCK));
 		registerModel(ItemsRegistery.strangesnowball);
 		registerModel(ItemsRegistery.polarium_ingot);
+		registerModel(ItemsRegistery.POLARIUM_NUGGET);
 		registerModel(ItemsRegistery.polarium_axe);
 		registerModel(ItemsRegistery.polarium_pickaxe);
 		registerModel(ItemsRegistery.polarium_shovel);
 		registerModel(ItemsRegistery.polarium_sword);
+		registerModel(ItemsRegistery.POLARIUM_HOE);
 		registerModel(ItemsRegistery.winterjam);
 		registerModel(ItemsRegistery.polarium_booties);
 		registerModel(ItemsRegistery.polarium_chestplate);
 		registerModel(ItemsRegistery.polarium_helmet);
 		registerModel(ItemsRegistery.polarium_leggings);
+		registerModel(ItemsRegistery.POLARIUM_HORSE_ARMOR);
 	}
 
 	/**

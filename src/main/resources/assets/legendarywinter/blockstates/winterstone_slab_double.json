@@ -1,0 +1,6 @@
+{
+    "variants": {
+    	"variant=default": { "model": "legendarywinter:winterstone" },
+        "normal": { "model": "legendarywinter:winterstone" }
+    }
+}

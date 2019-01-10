@@ -1,11 +1,15 @@
 package geek.legendarywinter.init;
 
+import geek.legendarywinter.LegendaryWinter;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import geek.legendarywinter.items.*;
 import geek.legendarywinter.items.armor.*;
 import geek.legendarywinter.items.tools.*;
 
+import static geek.legendarywinter.LegendaryWinter.MODID;
+
+@ObjectHolder(MODID)
 public class ItemsRegistery {
 	
 	/**
@@ -43,5 +47,12 @@ public class ItemsRegistery {
 	
 	@ObjectHolder("legendarywinter:polarium_booties")
 	public static final Item polarium_booties = new PolariumBooties();
-	
+
+	public static final Item POLARIUM_HOE = null;
+
+	public static final Item POLARIUM_NUGGET = null;
+
+	public static final Item POLARIUM_HORSE_ARMOR = null;
+
+
 }

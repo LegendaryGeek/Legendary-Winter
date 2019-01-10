@@ -20,6 +20,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.RegistryNamespaced;
 import net.minecraft.world.World;
 
+import static net.minecraft.util.math.BlockPos.*;
+
 public class EnchantmentWinterWalker extends Enchantment {
 	
     public EnchantmentWinterWalker(Enchantment.Rarity rarityIn, EntityEquipmentSlot... slots)
@@ -64,40 +66,37 @@ public class EnchantmentWinterWalker extends Enchantment {
   
     public static void freezeNearby(EntityPlayer living, World worldIn, BlockPos pos)
     {
-        if (living instanceof EntityPlayer)
-        {
-            float f = (float)Math.min(16, 5);
-            BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(0, 0, 0);
+        final PooledMutableBlockPos pooledMutableBlockPos = PooledMutableBlockPos.retain();
+        try {
+            if (living != null) {
+                float f = (float) Math.min(16, 5);
+                for (MutableBlockPos blockPos : getAllInBoxMutable(pos.add((double) (-f), -1.0D, (double) (-f)), pos.add((double) f, -1.0D, (double) f))) {
+                    if (blockPos.distanceSqToCenter(living.posX, living.posY, living.posZ) <= (double) (f * f)) {
+	                    pooledMutableBlockPos.setPos(blockPos.getX(), blockPos.getY() + 1, blockPos.getZ());
+                        IBlockState iblockstate = worldIn.getBlockState(pooledMutableBlockPos);
 
-            for (BlockPos.MutableBlockPos blockpos$mutableblockpos1 : BlockPos.getAllInBoxMutable(pos.add((double)(-f), -1.0D, (double)(-f)), pos.add((double)f, -1.0D, (double)f)))
-            {
-                if (blockpos$mutableblockpos1.distanceSqToCenter(living.posX, living.posY, living.posZ) <= (double)(f * f))
-                {
-                    blockpos$mutableblockpos.setPos(blockpos$mutableblockpos1.getX(), blockpos$mutableblockpos1.getY() + 1, blockpos$mutableblockpos1.getZ());
-                    IBlockState iblockstate = worldIn.getBlockState(blockpos$mutableblockpos);
+                        if (iblockstate.getMaterial() == Material.AIR) {
+	                            IBlockState iblockstate1 = worldIn.getBlockState(blockPos);
 
-                    if (iblockstate.getMaterial() == Material.AIR)
-                    {
-                        IBlockState iblockstate1 = worldIn.getBlockState(blockpos$mutableblockpos1);
-
-                        if (iblockstate1.getMaterial() == Material.WATER && (iblockstate1.getBlock() == net.minecraft.init.Blocks.WATER || iblockstate1.getBlock() == net.minecraft.init.Blocks.FLOWING_WATER) && ((Integer)iblockstate1.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.mayPlace(Blocks.ICE, blockpos$mutableblockpos1, false, EnumFacing.DOWN, (Entity)null))
-                        {
-                            worldIn.setBlockState(blockpos$mutableblockpos1, Blocks.ICE.getDefaultState());
-                            worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.ICE, MathHelper.getInt(living.getRNG(), 60, 120));
-                        } else if (iblockstate1.getMaterial() == Material.LAVA && (iblockstate1.getBlock() == net.minecraft.init.Blocks.LAVA || iblockstate1.getBlock() == net.minecraft.init.Blocks.FLOWING_LAVA) && ((Integer)iblockstate1.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.mayPlace(Blocks.MAGMA, blockpos$mutableblockpos1, false, EnumFacing.DOWN, (Entity)null))
-                        {
-                            worldIn.setBlockState(blockpos$mutableblockpos1, Blocks.MAGMA.getDefaultState());
-                            worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.MAGMA, MathHelper.getInt(living.getRNG(), 60, 120));
+                            if (iblockstate1.getMaterial() == Material.WATER && (iblockstate1.getBlock() == Blocks.WATER || iblockstate1.getBlock() == Blocks.FLOWING_WATER) && ((Integer) iblockstate1.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.mayPlace(Blocks.ICE, blockPos, false, EnumFacing.DOWN, (Entity) null)) {
+                                worldIn.setBlockState(blockPos, Blocks.ICE.getDefaultState());
+                                worldIn.scheduleUpdate(blockPos.toImmutable(), Blocks.ICE, MathHelper.getInt(living.getRNG(), 60, 120));
+                            } else if (iblockstate1.getMaterial() == Material.LAVA && (iblockstate1.getBlock() == Blocks.LAVA || iblockstate1.getBlock() == Blocks.FLOWING_LAVA) && ((Integer) iblockstate1.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.mayPlace(Blocks.MAGMA, blockPos, false, EnumFacing.DOWN, (Entity) null)) {
+                                worldIn.setBlockState(blockPos, Blocks.MAGMA.getDefaultState());
+                                worldIn.scheduleUpdate(blockPos.toImmutable(), Blocks.MAGMA, MathHelper.getInt(living.getRNG(), 60, 120));
+                            }
+                        } else if (iblockstate.getBlock() == Blocks.SNOW) {
+                            worldIn.setBlockState(pooledMutableBlockPos, Blocks.PACKED_ICE.getDefaultState());
+                            worldIn.scheduleUpdate(blockPos.toImmutable(), Blocks.PACKED_ICE, MathHelper.getInt(living.getRNG(), 60, 120));
+                        } else if (iblockstate.getBlock() == Blocks.STONE) {
+                            worldIn.setBlockState(pooledMutableBlockPos, BlocksRegistry.SnowStone.getDefaultState());
+                            worldIn.scheduleUpdate(blockPos.toImmutable(), BlocksRegistry.SnowStone, MathHelper.getInt(living.getRNG(), 60, 120));
                         }
-                    } else if ( iblockstate.getBlock() == Blocks.SNOW){
-                    	worldIn.setBlockState(blockpos$mutableblockpos, Blocks.PACKED_ICE.getDefaultState());
-                    	worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.PACKED_ICE, MathHelper.getInt(living.getRNG(), 60, 120));
-                    } else if ( iblockstate.getBlock() == Blocks.STONE){
-                    	worldIn.setBlockState(blockpos$mutableblockpos, BlocksRegistry.SnowStone.getDefaultState());
-                    	worldIn.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), BlocksRegistry.SnowStone, MathHelper.getInt(living.getRNG(), 60, 120));
                     }
                 }
             }
+        }finally {
+	        pooledMutableBlockPos.release();
         }
     }
 

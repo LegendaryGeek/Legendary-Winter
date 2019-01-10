@@ -14,6 +14,7 @@ public class Strange_Snow extends Block {
 
 	public Strange_Snow() {
 		super(Material.ROCK);
+		this.setHardness(0.2F);//snow hardness
 		//this.setRegistryName(WinterCraft.MODID + "." + "fakesnow");
 		this.setCreativeTab(GeekTab.instance);
 		this.setHarvestLevel("shovel" , 0);

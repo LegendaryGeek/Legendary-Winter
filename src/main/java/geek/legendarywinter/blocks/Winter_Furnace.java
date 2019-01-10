@@ -41,6 +41,7 @@ public class Winter_Furnace extends BlockContainer {
     public Winter_Furnace(boolean isBurning)
     {
         super(Material.ROCK);
+		setHardness(1.5F);//stone hardness
         this.setHarvestLevel("pickaxe", 0);
         this.setCreativeTab(GeekTab.instance);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));

@@ -5,12 +5,11 @@ import geek.legendarywinter.init.ItemsRegistery;
 import geek.legendarywinter.util.GeekTab;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item.ToolMaterial;
 
 public class WinterToolShovel extends ItemSpade {
 	
 	public WinterToolShovel() {
-		super(LegendaryWinter.POLARIUM);
+		super(LegendaryWinter.POLARIUM_TOOL_MATERIAL);
 		this.setHarvestLevel("shovel", 3);
 		this.setCreativeTab(GeekTab.instance);
 		
