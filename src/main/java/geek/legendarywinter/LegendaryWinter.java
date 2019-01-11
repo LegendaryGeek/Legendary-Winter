@@ -29,6 +29,11 @@ dependencies = "required-after:forge@[14.23.4.2739,)",
 version = LegendaryWinter.VERSION)
 public class LegendaryWinter
 {
+	//TODO: Request:
+	// If possible, some kind of ice dungeon could be cool.
+	// have one item or gear that isn't craftable... with a powerful ability
+	// like an ice bow that encases an enemy in ice maybe
+	
     public static final String MODID = "legendarywinter";
     public static final String NAME = "Legendary Winter";
     // replaced by build.gradle
