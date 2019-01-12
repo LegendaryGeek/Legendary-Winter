@@ -88,12 +88,12 @@ public final class CommonEventHandler {
 		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(MODID, "winterfurnace"));
 
 		//Fix enchantment placing null blocks
-		registry.register(setupBlock(new Snowstone_Block(), "snowstone_block"));
+		//registry.register(setupBlock(new Snowstone_Block(), "snowstone_block"));
 
-		registry.register(setupBlock(new BlockWinterstoneSlab.Half(), "winterstone_slab_half"));
-		registry.register(setupBlock(new BlockWinterstoneSlab.Double(), "winterstone_slab_double"));
+		registry.register(setupBlock(new BlockWinterstoneSlab.Half(), "winterstone_slab"));
+		registry.register(setupBlock(new BlockWinterstoneSlab.Double(), "winterstone_double_slab"));
 
-		registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
+		//registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
 
 		//event.getRegistry().register(setupBlock(new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}
@@ -123,12 +123,12 @@ public final class CommonEventHandler {
 		final IForgeRegistry<Item> registry = event.getRegistry();
 		registry.register(setupItemBlock(BlocksRegistry.Polarium_Ore));
 		registry.register(setupItemBlock(BlocksRegistry.WinterStone));
-		registry.register(setupItemBlock(BlocksRegistry.SnowStone));//TODO: should this have an item?
+		//registry.register(setupItemBlock(BlocksRegistry.SnowStone));//TODO: should this have an item?
 		registry.register(setupItemBlock(BlocksRegistry.StrangeSnow));
 		registry.register(setupItemBlock(BlocksRegistry.SnowFurnace));
-		registry.register(setupItemBlock(BlocksRegistry.WINTERSTONE_STAIRS));
-		registry.register(setupItemBlock(BlocksRegistry.WINTERSTONE_WALL));
-		registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
+		registry.register(setupItemBlock(BlocksRegistry.WinterstoneStairs));
+		registry.register(setupItemBlock(BlocksRegistry.WinterstoneWall));
+		//registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
 		//event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 
 		registry.register(setupItem(new Strange_Snowball(), "strange_snowball"));

@@ -38,12 +38,12 @@ public final class ClientEventHandler {
 		registerModel(Item.getItemFromBlock(BlocksRegistry.WinterStone));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.Polarium_Ore));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.SnowFurnace));
-		registerModel(Item.getItemFromBlock(BlocksRegistry.SnowStone)); //TODO: should this have an item?
+		//registerModel(Item.getItemFromBlock(BlocksRegistry.SnowStone)); //TODO: should this have an item?
 		//registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
 		registerModel(Item.getItemFromBlock(BlocksRegistry.WINTERSTONE_SLAB_HALF));
-		registerModel(Item.getItemFromBlock(BlocksRegistry.WINTERSTONE_STAIRS));
-		registerModel(Item.getItemFromBlock(BlocksRegistry.WINTERSTONE_WALL));
-		registerModel(Item.getItemFromBlock(BlocksRegistry.POLARIUM_BLOCK));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.WinterstoneStairs));
+		registerModel(Item.getItemFromBlock(BlocksRegistry.WinterstoneWall));
+		//registerModel(Item.getItemFromBlock(BlocksRegistry.POLARIUM_BLOCK));
 		registerModel(ItemsRegistery.strangesnowball);
 		registerModel(ItemsRegistery.polarium_ingot);
 		registerModel(ItemsRegistery.POLARIUM_NUGGET);

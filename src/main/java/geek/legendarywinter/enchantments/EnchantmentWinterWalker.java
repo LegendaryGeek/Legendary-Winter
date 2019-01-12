@@ -89,8 +89,8 @@ public class EnchantmentWinterWalker extends Enchantment {
                             worldIn.setBlockState(pooledMutableBlockPos, Blocks.PACKED_ICE.getDefaultState());
                             worldIn.scheduleUpdate(blockPos.toImmutable(), Blocks.PACKED_ICE, MathHelper.getInt(living.getRNG(), 60, 120));
                         } else if (iblockstate.getBlock() == Blocks.STONE) {
-                            worldIn.setBlockState(pooledMutableBlockPos, BlocksRegistry.SnowStone.getDefaultState());
-                            worldIn.scheduleUpdate(blockPos.toImmutable(), BlocksRegistry.SnowStone, MathHelper.getInt(living.getRNG(), 60, 120));
+                            worldIn.setBlockState(pooledMutableBlockPos, BlocksRegistry.WinterStone.getDefaultState());
+                            worldIn.scheduleUpdate(blockPos.toImmutable(), BlocksRegistry.WinterStone, MathHelper.getInt(living.getRNG(), 60, 120));
                         }
                     }
                 }

@@ -10,6 +10,7 @@ import geek.legendarywinter.blocks.Strange_Snow;
 import geek.legendarywinter.blocks.Winter_Furnace;
 import geek.legendarywinter.blocks.Winterstone;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
@@ -41,13 +42,17 @@ public class BlocksRegistry {
 	@ObjectHolder("legendarywinter:fluidsnow")
 	public static final Block FluidSnow = null;
 
-	public static final BlockWinterstoneSlab.Half WINTERSTONE_SLAB_HALF = null;
+	@ObjectHolder("legendarywinter:winterstone_slab")
+	public static final BlockSlab WINTERSTONE_SLAB_HALF = new BlockWinterstoneSlab.Half();
+	
+	@ObjectHolder("legendarywinter:winterstone_double_slab")
+	public static final BlockSlab WINTERSTONE_SLAB_DOUBLE = new BlockWinterstoneSlab.Double();
 
-	public static final BlockWinterstoneSlab.Double WINTERSTONE_SLAB_DOUBLE = null;
+	@ObjectHolder("legendarywinter:winterstone_stairs")
+	public static final Block WinterstoneStairs = new BlockWinterstoneStairs(BlocksRegistry.WinterStone);
 
-	public static final BlockWinterstoneStairs WINTERSTONE_STAIRS = null;
-
-	public static final BlockWinterstoneWall WINTERSTONE_WALL = null;
+	@ObjectHolder("legendarywinter:winterstone_wall")
+	public static final Block WinterstoneWall = new BlockWinterstoneWall(BlocksRegistry.WinterStone.getDefaultState());
 
 	public static final Block POLARIUM_BLOCK = null;
 
