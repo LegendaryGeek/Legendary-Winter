@@ -2,9 +2,8 @@ tile.legendarywinter.polarium_ore.name=Polarium Ore
 tile.legendarywinter.strange_snow.name=Strange Snow
 tile.legendarywinter.winterfurnace.name=Winter Furnace
 tile.legendarywinter.winterstone.name=Winter Stone
-tile.legendarywinter.snowstone_block.name=Snowstone Block
 tile.legendarywinter.polarium_block.name=Polarium Block
-tile.legendarywinter.winterstone_slab_half.name=Winterstone Slab
+tile.legendarywinter.winterstone_slab.name=Winterstone Slab
 tile.legendarywinter.winterstone_stairs.name=Winterstone Stairs
 tile.legendarywinter.winterstone_wall.name=Winterstone Wall
 
