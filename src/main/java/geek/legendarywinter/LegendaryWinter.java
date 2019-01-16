@@ -37,7 +37,7 @@ public class LegendaryWinter
     public static final String MODID = "legendarywinter";
     public static final String NAME = "Legendary Winter";
     // replaced by build.gradle
-    public static final String VERSION = "@VERSION@";
+    public static final String VERSION = "1.0";
     @Instance
     public static LegendaryWinter instance = null;
     public static final Item.ToolMaterial POLARIUM_TOOL_MATERIAL;
