@@ -72,7 +72,7 @@ public class EnchantmentWinterWalker extends Enchantment {
                 float f = (float) Math.min(16, 5);
                 for (MutableBlockPos blockPos : getAllInBoxMutable(pos.add((double) (-f), -1.0D, (double) (-f)), pos.add((double) f, -1.0D, (double) f))) {
                     if (blockPos.distanceSqToCenter(living.posX, living.posY, living.posZ) <= (double) (f * f)) {
-	                    pooledMutableBlockPos.setPos(blockPos.getX(), blockPos.getY() + 1, blockPos.getZ());
+	                    pooledMutableBlockPos.setPos(blockPos.getX(), blockPos.getY(), blockPos.getZ());
                         IBlockState iblockstate = worldIn.getBlockState(pooledMutableBlockPos);
 
                         if (iblockstate.getMaterial() == Material.AIR) {
