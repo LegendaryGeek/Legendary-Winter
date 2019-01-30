@@ -1,9 +1,7 @@
 package geek.legendarywinter.items.armor;
 
 import geek.legendarywinter.LegendaryWinter;
-import geek.legendarywinter.init.ItemsRegistery;
 import geek.legendarywinter.util.GeekTab;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
