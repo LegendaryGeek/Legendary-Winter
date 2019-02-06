@@ -1,11 +1,11 @@
 {
-    "name": "Test Entry",
+    "name": "Getting Started",
     "icon": "minecraft:writable_book",
     "category": "test_category",
     "pages": [
         {
             "type": "text",
-            "text": "This is a test entry, but it should show up!"
+            "text": "To start using the magic of Legendary Winter, you must first aquire this book."
         }
     ]
 }
