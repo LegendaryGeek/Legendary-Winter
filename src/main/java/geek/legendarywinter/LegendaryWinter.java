@@ -67,6 +67,7 @@ public class LegendaryWinter
     	// in here to make sure polarium_ingot exists (registry events are fired right before init)
 	    POLARIUM_TOOL_MATERIAL.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
 	    POLARIUM_ARMOR_MATERIAL.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
+	    
     }
 
 	/**
