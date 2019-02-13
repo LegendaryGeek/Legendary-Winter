@@ -41,11 +41,21 @@ minecraft {
 
 repositories {
     maven { url 'https://maven.blamejared.com' }
-}
+	maven {
+    name = "Progwml6 maven"
+    url = "http://dvs1.progwml6.com/files/maven"
+  }
+  maven {
+    name = "ModMaven"
+    url = "modmaven.k-4u.nl"
+  }
+  }
 
 dependencies {
     compile "vazkii.patchouli:Patchouli:1.0-16.84"
-
+	deobfProvided "mezz.jei:jei_1.12.2:4.14.3.245:api"
+	runtime "mezz.jei:jei_1.12.2:4.14.3.245"
+	
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
