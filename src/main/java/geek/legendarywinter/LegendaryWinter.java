@@ -8,6 +8,7 @@ import net.minecraft.entity.passive.HorseArmorType;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
@@ -67,6 +68,7 @@ public class LegendaryWinter
     	// in here to make sure polarium_ingot exists (registry events are fired right before init)
 	    POLARIUM_TOOL_MATERIAL.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
 	    POLARIUM_ARMOR_MATERIAL.setRepairItem(new ItemStack(ItemsRegistery.polarium_ingot));
+	    
 	    
     }
 
