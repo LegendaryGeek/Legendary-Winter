@@ -173,6 +173,7 @@ public abstract class BlockModWall extends Block {
 		return AABB_BY_INDEX[this.getAABBIndex(state)];
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void addCollisionBoxToList(IBlockState state, final World worldIn, final BlockPos pos, final AxisAlignedBB entityBox, final List<AxisAlignedBB> collidingBoxes, @Nullable final Entity entityIn, final boolean isActualState) {
 		if (!isActualState) {

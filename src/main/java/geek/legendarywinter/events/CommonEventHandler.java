@@ -1,12 +1,14 @@
 package geek.legendarywinter.events;
 
+import static geek.legendarywinter.LegendaryWinter.MODID;
+import static geek.legendarywinter.init.BlocksRegistry.WINTERSTONE_SLAB_DOUBLE;
+import static geek.legendarywinter.init.BlocksRegistry.WINTERSTONE_SLAB_HALF;
+
 import geek.legendarywinter.LegendaryWinter;
-import geek.legendarywinter.blocks.BlockPolariumBlock;
 import geek.legendarywinter.blocks.BlockWinterstoneSlab;
 import geek.legendarywinter.blocks.BlockWinterstoneStairs;
 import geek.legendarywinter.blocks.BlockWinterstoneWall;
 import geek.legendarywinter.blocks.Polarium_Ore;
-import geek.legendarywinter.blocks.Snowstone_Block;
 import geek.legendarywinter.blocks.Strange_Snow;
 import geek.legendarywinter.blocks.Winter_Furnace;
 import geek.legendarywinter.blocks.Winterstone;
@@ -43,11 +45,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import static geek.legendarywinter.LegendaryWinter.MODID;
-import static geek.legendarywinter.init.BlocksRegistry.WINTERSTONE_SLAB_DOUBLE;
-import static geek.legendarywinter.init.BlocksRegistry.WINTERSTONE_SLAB_HALF;
-
-@Mod.EventBusSubscriber(value = {Side.CLIENT, Side.SERVER}, modid = MODID)
+@Mod.EventBusSubscriber(value = { Side.CLIENT, Side.SERVER }, modid = MODID)
 public final class CommonEventHandler {
 
 	private CommonEventHandler() {
@@ -87,24 +85,26 @@ public final class CommonEventHandler {
 		registry.register(setupBlock(new Winter_Furnace(true), "lit_winterfurnace"));
 		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(MODID, "winterfurnace"));
 
-		//Fix enchantment placing null blocks
-		//registry.register(setupBlock(new Snowstone_Block(), "snowstone_block"));
+		// Fix enchantment placing null blocks
+		// registry.register(setupBlock(new Snowstone_Block(), "snowstone_block"));
 
 		registry.register(setupBlock(new BlockWinterstoneSlab.Half(), "winterstone_slab"));
 		registry.register(setupBlock(new BlockWinterstoneSlab.Double(), "winterstone_double_slab"));
 
-		//registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
+		// registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
 
-		//event.getRegistry().register(setupBlock(new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
+		// event.getRegistry().register(setupBlock(new
+		// BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void registerBlocksAfter(final RegistryEvent.Register<Block> event) {
 		final IForgeRegistry<Block> registry = event.getRegistry();
-		//TODO: watchout for changes to winterstone's registry name!
+		// TODO: watchout for changes to winterstone's registry name!
 		final Block winterstone = registry.getValue(new ResourceLocation(MODID, "winterstone"));
 		assert winterstone != null;
-		//register these later so if mods override Snow Stone we get the overridden version
+		// register these later so if mods override Snow Stone we get the overridden
+		// version
 		registry.register(setupBlock(new BlockWinterstoneStairs(winterstone), "winterstone_stairs"));
 		registry.register(setupBlock(new BlockWinterstoneWall(winterstone.getDefaultState()), "winterstone_wall"));
 
@@ -112,7 +112,8 @@ public final class CommonEventHandler {
 
 	@SubscribeEvent
 	public static void registerEnchantments(final RegistryEvent.Register<Enchantment> event) {
-		event.getRegistry().register(setupEnchant(new EnchantmentWinterWalker(Enchantment.Rarity.RARE, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET}), "winter_walker"));
+		event.getRegistry().register(setupEnchant(new EnchantmentWinterWalker(Enchantment.Rarity.RARE,
+				new EntityEquipmentSlot[] { EntityEquipmentSlot.FEET }), "winter_walker"));
 	}
 
 	/**
@@ -123,13 +124,14 @@ public final class CommonEventHandler {
 		final IForgeRegistry<Item> registry = event.getRegistry();
 		registry.register(setupItemBlock(BlocksRegistry.Polarium_Ore));
 		registry.register(setupItemBlock(BlocksRegistry.WinterStone));
-		//registry.register(setupItemBlock(BlocksRegistry.SnowStone));//TODO: should this have an item?
+		// registry.register(setupItemBlock(BlocksRegistry.SnowStone));//TODO: should
+		// this have an item?
 		registry.register(setupItemBlock(BlocksRegistry.StrangeSnow));
 		registry.register(setupItemBlock(BlocksRegistry.SnowFurnace));
 		registry.register(setupItemBlock(BlocksRegistry.WinterstoneStairs));
 		registry.register(setupItemBlock(BlocksRegistry.WinterstoneWall));
-		//registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
-		//event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
+		// registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
+		// event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 
 		registry.register(setupItem(new Strange_Snowball(), "strange_snowball"));
 		registry.register(setupItem(new Polarium_Ingot(), "polarium_ingot"));
@@ -147,7 +149,8 @@ public final class CommonEventHandler {
 		registry.register(setupItem(new ItemPolariumHorseArmor(), "polarium_horse_armor"));
 
 		{
-			final ItemSlab itemSlab = new ItemSlab(WINTERSTONE_SLAB_HALF, WINTERSTONE_SLAB_HALF, WINTERSTONE_SLAB_DOUBLE);
+			final ItemSlab itemSlab = new ItemSlab(WINTERSTONE_SLAB_HALF, WINTERSTONE_SLAB_HALF,
+					WINTERSTONE_SLAB_DOUBLE);
 			final ResourceLocation name = WINTERSTONE_SLAB_HALF.getRegistryName();
 			itemSlab.setRegistryName(name);
 			LegendaryWinter.LOGGER.debug("!#!#!#! block registered as " + itemSlab.getRegistryName());

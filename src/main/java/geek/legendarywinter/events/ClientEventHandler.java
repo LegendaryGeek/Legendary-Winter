@@ -3,9 +3,7 @@ package geek.legendarywinter.events;
 import geek.legendarywinter.LegendaryWinter;
 import geek.legendarywinter.fluids.FluidStateMapper;
 import geek.legendarywinter.init.BlocksRegistry;
-import geek.legendarywinter.init.FluidsRegistry;
 import geek.legendarywinter.init.ItemsRegistery;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -38,12 +36,13 @@ public final class ClientEventHandler {
 		registerModel(Item.getItemFromBlock(BlocksRegistry.WinterStone));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.Polarium_Ore));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.SnowFurnace));
-		//registerModel(Item.getItemFromBlock(BlocksRegistry.SnowStone)); //TODO: should this have an item?
-		//registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
+		// registerModel(Item.getItemFromBlock(BlocksRegistry.SnowStone)); //TODO:
+		// should this have an item?
+		// registerFluidRender(BlocksRegistry.FluidSnow, FluidsRegistry.FluidSnow);
 		registerModel(Item.getItemFromBlock(BlocksRegistry.WINTERSTONE_SLAB_HALF));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.WinterstoneStairs));
 		registerModel(Item.getItemFromBlock(BlocksRegistry.WinterstoneWall));
-		//registerModel(Item.getItemFromBlock(BlocksRegistry.POLARIUM_BLOCK));
+		// registerModel(Item.getItemFromBlock(BlocksRegistry.POLARIUM_BLOCK));
 		registerModel(ItemsRegistery.strangesnowball);
 		registerModel(ItemsRegistery.polarium_ingot);
 		registerModel(ItemsRegistery.POLARIUM_NUGGET);
@@ -65,8 +64,8 @@ public final class ClientEventHandler {
 	 * @param item The Item.
 	 */
 	private static void registerModel(final Item item) {
-		ModelLoader.setCustomModelResourceLocation(item,
-				0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(item, 0,
+				new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
 
 	/**
@@ -80,8 +79,7 @@ public final class ClientEventHandler {
 		// another mod registered it's fluid before us.
 		final Item item = Item.getItemFromBlock(block);
 		final ResourceLocation resourceLocation = new ResourceLocation(LegendaryWinter.MODID, fluid.getName());
-		final FluidStateMapper mapper = new FluidStateMapper(
-				resourceLocation.getNamespace() + ":" + fluid.getName());
+		final FluidStateMapper mapper = new FluidStateMapper(resourceLocation.getNamespace() + ":" + fluid.getName());
 
 		if (item != null) {
 			ModelBakery.registerItemVariants(item);

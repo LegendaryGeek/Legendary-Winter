@@ -11,23 +11,24 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GeekTab extends CreativeTabs {
 
 	public static GeekTab instance = null;
+
 	public GeekTab() {
 		super(LegendaryWinter.MODID);
-		
+
 		// TODO Auto-generated constructor stub
 	}
-	
-	public static void init()
-	{
+
+	public static void init() {
 		instance = new GeekTab();
 	}
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack createIcon() {
 		// TODO Auto-generated method stub
 		return new ItemStack(ItemsRegistery.polarium_ingot);
 	}
-	
+
 	public CreativeTabs getCTab() {
 		return this;
 	}

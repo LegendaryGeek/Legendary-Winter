@@ -1,9 +1,5 @@
 package geek.legendarywinter.inventory;
 
-
-import geek.legendarywinter.items.recipe.Winter_Furnace_Recipes;
-import geek.legendarywinter.tileentity.TEWinter_Furnace;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -14,98 +10,84 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class containerSnowFurnace extends Container
-{
-    private final IInventory tileFurnace;
-    private int cookTime;
-    private int totalCookTime;
-    private int furnaceBurnTime;
-    private int currentItemBurnTime;
+public class containerSnowFurnace extends Container {
+	private final IInventory tileFurnace;
+	private int cookTime;
+	private int totalCookTime;
+	private int furnaceBurnTime;
+	private int currentItemBurnTime;
 
-    public containerSnowFurnace(InventoryPlayer playerInventory, IInventory furnaceInventory)
-    {
-        this.tileFurnace = furnaceInventory;
-        this.addSlotToContainer(new Slot(furnaceInventory, 0, 56, 17));
-        this.addSlotToContainer(new slotSnowFurnaceFuel(furnaceInventory, 1, 56, 53));
-        this.addSlotToContainer(new slotSnowFurnaceOutput(playerInventory.player, furnaceInventory, 2, 116, 35));
+	public containerSnowFurnace(InventoryPlayer playerInventory, IInventory furnaceInventory) {
+		this.tileFurnace = furnaceInventory;
+		this.addSlotToContainer(new Slot(furnaceInventory, 0, 56, 17));
+		this.addSlotToContainer(new slotSnowFurnaceFuel(furnaceInventory, 1, 56, 53));
+		this.addSlotToContainer(new slotSnowFurnaceOutput(playerInventory.player, furnaceInventory, 2, 116, 35));
 
-        for (int i = 0; i < 3; ++i)
-        {
-            for (int j = 0; j < 9; ++j)
-            {
-                this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-            }
-        }
+		for (int i = 0; i < 3; ++i) {
+			for (int j = 0; j < 9; ++j) {
+				this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+			}
+		}
 
-        for (int k = 0; k < 9; ++k)
-        {
-            this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 142));
-        }
-    }
+		for (int k = 0; k < 9; ++k) {
+			this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 142));
+		}
+	}
 
-    public void addListener(IContainerListener listener)
-    {
-        super.addListener(listener);
-        listener.sendAllWindowProperties(this, this.tileFurnace);
-    }
+	public void addListener(IContainerListener listener) {
+		super.addListener(listener);
+		listener.sendAllWindowProperties(this, this.tileFurnace);
+	}
 
-    /**
-     * Looks for changes made in the container, sends them to every listener.
-     */
-    public void detectAndSendChanges()
-    {
-        super.detectAndSendChanges();
+	/**
+	 * Looks for changes made in the container, sends them to every listener.
+	 */
+	public void detectAndSendChanges() {
+		super.detectAndSendChanges();
 
-        for (int i = 0; i < this.listeners.size(); ++i)
-        {
-            IContainerListener icontainerlistener = this.listeners.get(i);
+		for (int i = 0; i < this.listeners.size(); ++i) {
+			IContainerListener icontainerlistener = this.listeners.get(i);
 
-            if (this.cookTime != this.tileFurnace.getField(2))
-            {
-                icontainerlistener.sendWindowProperty(this, 2, this.tileFurnace.getField(2));
-            }
+			if (this.cookTime != this.tileFurnace.getField(2)) {
+				icontainerlistener.sendWindowProperty(this, 2, this.tileFurnace.getField(2));
+			}
 
-            if (this.furnaceBurnTime != this.tileFurnace.getField(0))
-            {
-                icontainerlistener.sendWindowProperty(this, 0, this.tileFurnace.getField(0));
-            }
+			if (this.furnaceBurnTime != this.tileFurnace.getField(0)) {
+				icontainerlistener.sendWindowProperty(this, 0, this.tileFurnace.getField(0));
+			}
 
-            if (this.currentItemBurnTime != this.tileFurnace.getField(1))
-            {
-                icontainerlistener.sendWindowProperty(this, 1, this.tileFurnace.getField(1));
-            }
+			if (this.currentItemBurnTime != this.tileFurnace.getField(1)) {
+				icontainerlistener.sendWindowProperty(this, 1, this.tileFurnace.getField(1));
+			}
 
-            if (this.totalCookTime != this.tileFurnace.getField(3))
-            {
-                icontainerlistener.sendWindowProperty(this, 3, this.tileFurnace.getField(3));
-            }
-        }
+			if (this.totalCookTime != this.tileFurnace.getField(3)) {
+				icontainerlistener.sendWindowProperty(this, 3, this.tileFurnace.getField(3));
+			}
+		}
 
-        this.cookTime = this.tileFurnace.getField(2);
-        this.furnaceBurnTime = this.tileFurnace.getField(0);
-        this.currentItemBurnTime = this.tileFurnace.getField(1);
-        this.totalCookTime = this.tileFurnace.getField(3);
-    }
+		this.cookTime = this.tileFurnace.getField(2);
+		this.furnaceBurnTime = this.tileFurnace.getField(0);
+		this.currentItemBurnTime = this.tileFurnace.getField(1);
+		this.totalCookTime = this.tileFurnace.getField(3);
+	}
 
-    @SideOnly(Side.CLIENT)
-    public void updateProgressBar(int id, int data)
-    {
-        this.tileFurnace.setField(id, data);
-    }
+	@SideOnly(Side.CLIENT)
+	public void updateProgressBar(int id, int data) {
+		this.tileFurnace.setField(id, data);
+	}
 
-    /**
-     * Determines whether supplied player can use this container
-     */
-    public boolean canInteractWith(EntityPlayer playerIn)
-    {
-        return this.tileFurnace.isUsableByPlayer(playerIn);
-    }
+	/**
+	 * Determines whether supplied player can use this container
+	 */
+	public boolean canInteractWith(EntityPlayer playerIn) {
+		return this.tileFurnace.isUsableByPlayer(playerIn);
+	}
 
-    /**
-     * Handle when the stack in slot {@code index} is shift-clicked. Normally this moves the stack between the player
-     * inventory and the other inventory(s).
-     */
-    public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
-        return ContainerUtil.transferStackInSlot(playerIn, index, this);
-    }
+	/**
+	 * Handle when the stack in slot {@code index} is shift-clicked. Normally this
+	 * moves the stack between the player inventory and the other inventory(s).
+	 */
+	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+		return ContainerUtil.transferStackInSlot(playerIn, index, this);
+	}
 }

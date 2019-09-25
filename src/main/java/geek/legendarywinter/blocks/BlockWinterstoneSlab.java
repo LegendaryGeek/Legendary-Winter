@@ -1,7 +1,8 @@
 package geek.legendarywinter.blocks;
 
+import javax.annotation.Nonnull;
+
 import geek.legendarywinter.util.GeekTab;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -11,21 +12,18 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 
-import javax.annotation.Nonnull;
-
-import static geek.legendarywinter.LegendaryWinter.MODID;
-
 /**
  * @author Cadiboo
  */
 public abstract class BlockWinterstoneSlab extends BlockSlab {
 
-	public static final PropertyEnum<EnumVariant> VARIANT = PropertyEnum.<EnumVariant>create("variant", EnumVariant.class);
+	public static final PropertyEnum<EnumVariant> VARIANT = PropertyEnum.<EnumVariant>create("variant",
+			EnumVariant.class);
 
 	public BlockWinterstoneSlab() {
-		//TODO: keep this material in sync with Winterstone's material
+		// TODO: keep this material in sync with Winterstone's material
 		super(Material.ROCK);
-		//TODO: keep this hardness in sync with Winterstone's hardness
+		// TODO: keep this hardness in sync with Winterstone's hardness
 		this.setHardness(0.2F);
 		this.setCreativeTab(GeekTab.instance);
 		IBlockState state = this.blockState.getBaseState().withProperty(VARIANT, EnumVariant.DEFAULT);
@@ -37,7 +35,8 @@ public abstract class BlockWinterstoneSlab extends BlockSlab {
 	}
 
 	protected BlockStateContainer createBlockState() {
-		return this.isDouble() ? new BlockStateContainer(this, new IProperty[]{VARIANT}) : new BlockStateContainer(this, new IProperty[]{HALF, VARIANT});
+		return this.isDouble() ? new BlockStateContainer(this, new IProperty[] { VARIANT })
+				: new BlockStateContainer(this, new IProperty[] { HALF, VARIANT });
 	}
 
 	@Override
