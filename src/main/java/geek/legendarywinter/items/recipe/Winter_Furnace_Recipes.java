@@ -5,6 +5,7 @@ import java.util.Map.Entry;
 
 import com.google.common.collect.Maps;
 
+import geek.legendarywinter.init.BlocksRegistry;
 import geek.legendarywinter.init.ItemsRegistery;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -31,6 +32,7 @@ public class Winter_Furnace_Recipes {
 		this.addFreezingRecipe(new ItemStack(ItemsRegistery.strangesnowball),
 				new ItemStack(ItemsRegistery.polarium_ingot), 10000.5f);
 		this.addFreezingRecipeForBlock(Blocks.ICE, new ItemStack(Blocks.PACKED_ICE), 5.5f);
+		this.addFreezingRecipeForBlock(BlocksRegistry.Polarium_Ore, new ItemStack(ItemsRegistery.polarium_ingot), 5.5f);
 	}
 
 	/**
