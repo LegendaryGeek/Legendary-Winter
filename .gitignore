@@ -7,7 +7,6 @@ bin
 .project
 
 # idea
-classes
 out
 *.ipr
 *.iws
@@ -21,3 +20,6 @@ build
 # other
 eclipse
 run
+
+# Files from Forge MDK
+forge*changelog.txt

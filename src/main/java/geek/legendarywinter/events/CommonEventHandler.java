@@ -48,171 +48,231 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber(value = { Side.CLIENT, Side.SERVER }, modid = MODID)
 public final class CommonEventHandler {
 
-	private CommonEventHandler() {
+  private CommonEventHandler() {}
 
-	}
+  /**
+   * @param event The Event.
+   */
+  @SubscribeEvent
+  public void onRemapBlock(final RegistryEvent.MissingMappings<Block> event) {
+    for (final RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getMappings()) {
+      mapping.ignore();
+    }
+  }
 
-	/**
-	 * @param event The Event.
-	 */
-	@SubscribeEvent
-	public void onRemapBlock(final RegistryEvent.MissingMappings<Block> event) {
-		for (final RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getMappings()) {
-			mapping.ignore();
-		}
-	}
+  /**
+   * @param event The Event.
+   */
+  @SubscribeEvent
+  public void onRemapItem(final RegistryEvent.MissingMappings<Item> event) {
+    for (final RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getMappings()) {
+      mapping.ignore();
+    }
+  }
 
-	/**
-	 * @param event The Event.
-	 */
-	@SubscribeEvent
-	public void onRemapItem(final RegistryEvent.MissingMappings<Item> event) {
-		for (final RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getMappings()) {
-			mapping.ignore();
-		}
-	}
+  /**
+   * @param event The Event.
+   */
+  @SubscribeEvent
+  public static void registerBlocks(final RegistryEvent.Register<Block> event) {
+    final IForgeRegistry<Block> registry = event.getRegistry();
+    registry.register(setupBlock(new Polarium_Ore(), "polarium_ore"));
+    registry.register(setupBlock(new Strange_Snow(), "strange_snow"));
+    registry.register(setupBlock(new Winterstone(), "winterstone"));
+    registry.register(setupBlock(new Winter_Furnace(false), "winterfurnace"));
+    registry.register(
+      setupBlock(new Winter_Furnace(true), "lit_winterfurnace")
+    );
+    GameRegistry.registerTileEntity(
+      TEWinter_Furnace.class,
+      new ResourceLocation(MODID, "winterfurnace")
+    );
 
-	/**
-	 * @param event The Event.
-	 */
-	@SubscribeEvent
-	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-		final IForgeRegistry<Block> registry = event.getRegistry();
-		registry.register(setupBlock(new Polarium_Ore(), "polarium_ore"));
-		registry.register(setupBlock(new Strange_Snow(), "strange_snow"));
-		registry.register(setupBlock(new Winterstone(), "winterstone"));
-		registry.register(setupBlock(new Winter_Furnace(false), "winterfurnace"));
-		registry.register(setupBlock(new Winter_Furnace(true), "lit_winterfurnace"));
-		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(MODID, "winterfurnace"));
+    // Fix enchantment placing null blocks
+    // registry.register(setupBlock(new Snowstone_Block(), "snowstone_block"));
 
-		// Fix enchantment placing null blocks
-		// registry.register(setupBlock(new Snowstone_Block(), "snowstone_block"));
+    registry.register(
+      setupBlock(new BlockWinterstoneSlab.Half(), "winterstone_slab")
+    );
+    registry.register(
+      setupBlock(new BlockWinterstoneSlab.Double(), "winterstone_double_slab")
+    );
+    // registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
 
-		registry.register(setupBlock(new BlockWinterstoneSlab.Half(), "winterstone_slab"));
-		registry.register(setupBlock(new BlockWinterstoneSlab.Double(), "winterstone_double_slab"));
+    // event.getRegistry().register(setupBlock(new
+    // BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
+  }
 
-		// registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
+  @SubscribeEvent(priority = EventPriority.LOW)
+  public static void registerBlocksAfter(
+    final RegistryEvent.Register<Block> event
+  ) {
+    final IForgeRegistry<Block> registry = event.getRegistry();
+    // TODO: watchout for changes to winterstone's registry name!
+    final Block winterstone = registry.getValue(
+      new ResourceLocation(MODID, "winterstone")
+    );
+    assert winterstone != null;
+    // register these later so if mods override Snow Stone we get the overridden
+    // version
+    registry.register(
+      setupBlock(new BlockWinterstoneStairs(winterstone), "winterstone_stairs")
+    );
+    registry.register(
+      setupBlock(
+        new BlockWinterstoneWall(winterstone.getDefaultState()),
+        "winterstone_wall"
+      )
+    );
+  }
 
-		// event.getRegistry().register(setupBlock(new
-		// BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
-	}
+  @SubscribeEvent
+  public static void registerEnchantments(
+    final RegistryEvent.Register<Enchantment> event
+  ) {
+    event
+      .getRegistry()
+      .register(
+        setupEnchant(
+          new EnchantmentWinterWalker(
+            Enchantment.Rarity.RARE,
+            new EntityEquipmentSlot[] { EntityEquipmentSlot.FEET }
+          ),
+          "winter_walker"
+        )
+      );
+  }
 
-	@SubscribeEvent(priority = EventPriority.LOW)
-	public static void registerBlocksAfter(final RegistryEvent.Register<Block> event) {
-		final IForgeRegistry<Block> registry = event.getRegistry();
-		// TODO: watchout for changes to winterstone's registry name!
-		final Block winterstone = registry.getValue(new ResourceLocation(MODID, "winterstone"));
-		assert winterstone != null;
-		// register these later so if mods override Snow Stone we get the overridden
-		// version
-		registry.register(setupBlock(new BlockWinterstoneStairs(winterstone), "winterstone_stairs"));
-		registry.register(setupBlock(new BlockWinterstoneWall(winterstone.getDefaultState()), "winterstone_wall"));
+  /**
+   * @param event The Event.
+   */
+  @SubscribeEvent
+  public static void registerItems(final RegistryEvent.Register<Item> event) {
+    final IForgeRegistry<Item> registry = event.getRegistry();
+    registry.register(setupItemBlock(BlocksRegistry.Polarium_Ore));
+    registry.register(setupItemBlock(BlocksRegistry.WinterStone));
+    //registry.register(setupItemBlock(BlocksRegistry.SnowStone));
+    //TODO: should this have an item?
+    registry.register(setupItemBlock(BlocksRegistry.StrangeSnow));
+    registry.register(setupItemBlock(BlocksRegistry.SnowFurnace));
+    registry.register(setupItemBlock(BlocksRegistry.WinterstoneStairs));
+    registry.register(setupItemBlock(BlocksRegistry.WinterstoneWall));
+    // registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
+    // event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 
-	}
+    registry.register(setupItem(new Strange_Snowball(), "strange_snowball"));
+    registry.register(setupItem(new Polarium_Ingot(), "polarium_ingot"));
+    registry.register(setupItem(new PolariumNugget(), "polarium_nugget"));
+    registry.register(setupItem(new WinterToolSword(), "polarium_sword"));
+    registry.register(setupItem(new WinterToolShovel(), "polarium_shovel"));
+    registry.register(setupItem(new WinterToolPickaxe(), "polarium_pickaxe"));
+    registry.register(setupItem(new WinterToolAxe(), "polarium_axe"));
+    registry.register(setupItem(new WinterToolHoe(), "polarium_hoe"));
+    registry.register(setupItem(new WinterJam(), "winterjam"));
+    registry.register(setupItem(new PolariumHelmet(), "polarium_helmet"));
+    registry.register(
+      setupItem(new PolariumChestplate(), "polarium_chestplate")
+    );
+    registry.register(setupItem(new PolariumLeggings(), "polarium_leggings"));
+    registry.register(setupItem(new PolariumBooties(), "polarium_booties"));
+    registry.register(
+      setupItem(new ItemPolariumHorseArmor(), "polarium_horse_armor")
+    );
 
-	@SubscribeEvent
-	public static void registerEnchantments(final RegistryEvent.Register<Enchantment> event) {
-		event.getRegistry().register(setupEnchant(new EnchantmentWinterWalker(Enchantment.Rarity.RARE,
-				new EntityEquipmentSlot[] { EntityEquipmentSlot.FEET }), "winter_walker"));
-	}
+    {
+      final ItemSlab itemSlab = new ItemSlab(
+        WINTERSTONE_SLAB_HALF,
+        WINTERSTONE_SLAB_HALF,
+        WINTERSTONE_SLAB_DOUBLE
+      );
+      final ResourceLocation name = WINTERSTONE_SLAB_HALF.getRegistryName();
+      itemSlab.setRegistryName(MODID, name.toString());
+      LegendaryWinter.LOGGER.debug(
+        "!#!#!#! block registered as " + itemSlab.getRegistryName()
+      );
+      registry.register(itemSlab);
+    }
+  }
 
-	/**
-	 * @param event The Event.
-	 */
-	@SubscribeEvent
-	public static void registerItems(final RegistryEvent.Register<Item> event) {
-		final IForgeRegistry<Item> registry = event.getRegistry();
-		registry.register(setupItemBlock(BlocksRegistry.Polarium_Ore));
-		registry.register(setupItemBlock(BlocksRegistry.WinterStone));
-		// registry.register(setupItemBlock(BlocksRegistry.SnowStone));//TODO: should
-		// this have an item?
-		registry.register(setupItemBlock(BlocksRegistry.StrangeSnow));
-		registry.register(setupItemBlock(BlocksRegistry.SnowFurnace));
-		registry.register(setupItemBlock(BlocksRegistry.WinterstoneStairs));
-		registry.register(setupItemBlock(BlocksRegistry.WinterstoneWall));
-		// registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
-		// event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
+  /**
+   * @param event The Event.
+   */
+  @SubscribeEvent
+  public static void registerRecipes(
+    final RegistryEvent.Register<IRecipe> event
+  ) {
+    //
+  }
 
-		registry.register(setupItem(new Strange_Snowball(), "strange_snowball"));
-		registry.register(setupItem(new Polarium_Ingot(), "polarium_ingot"));
-		registry.register(setupItem(new PolariumNugget(), "polarium_nugget"));
-		registry.register(setupItem(new WinterToolSword(), "polarium_sword"));
-		registry.register(setupItem(new WinterToolShovel(), "polarium_shovel"));
-		registry.register(setupItem(new WinterToolPickaxe(), "polarium_pickaxe"));
-		registry.register(setupItem(new WinterToolAxe(), "polarium_axe"));
-		registry.register(setupItem(new WinterToolHoe(), "polarium_hoe"));
-		registry.register(setupItem(new WinterJam(), "winterjam"));
-		registry.register(setupItem(new PolariumHelmet(), "polarium_helmet"));
-		registry.register(setupItem(new PolariumChestplate(), "polarium_chestplate"));
-		registry.register(setupItem(new PolariumLeggings(), "polarium_leggings"));
-		registry.register(setupItem(new PolariumBooties(), "polarium_booties"));
-		registry.register(setupItem(new ItemPolariumHorseArmor(), "polarium_horse_armor"));
+  /**
+   * @param block The Block.
+   * @param name  The Name.
+   * @return The Block
+   */
+  private static Block setupBlock(final Block block, final String name) {
+    block.setRegistryName(MODID, name);
+    block.setUnlocalizedName(MODID + "." + name);
+    // block.setTranslationKey(MODID + "." + name);
+    LegendaryWinter.LOGGER.debug(
+      "!#!#!#! block registered as {} with unlocalized name {}",
+      block.getRegistryName(),
+      block.getUnlocalizedName()
+    );
+    return block;
+  }
 
-		{
-			final ItemSlab itemSlab = new ItemSlab(WINTERSTONE_SLAB_HALF, WINTERSTONE_SLAB_HALF,
-					WINTERSTONE_SLAB_DOUBLE);
-			final ResourceLocation name = WINTERSTONE_SLAB_HALF.getRegistryName();
-			itemSlab.setRegistryName(name);
-			LegendaryWinter.LOGGER.debug("!#!#!#! block registered as " + itemSlab.getRegistryName());
-			registry.register(itemSlab);
-		}
-	}
+  /**
+   * @param block The Block.
+   * @return The ItemBlock.
+   */
+  private static ItemBlock setupItemBlock(final Block block) {
+    final ItemBlock itemBlock = new ItemBlock(block);
+    final ResourceLocation name = block.getRegistryName();
+    LegendaryWinter.LOGGER.debug(
+      "name of block trying get an item: {}",
+      block.getRegistryName()
+    );
+    itemBlock.setRegistryName(name);
+    // itemBlock.setUnlocalizedName(MODID + "." + name);
+    LegendaryWinter.LOGGER.debug(
+      "!#!#!#! itemblock registered as {} with unlocalized name {}",
+      block.getRegistryName(),
+      block.getUnlocalizedName()
+    );
 
-	/**
-	 * @param event The Event.
-	 */
-	@SubscribeEvent
-	public static void registerRecipes(final RegistryEvent.Register<IRecipe> event) {
-		//
-	}
+    return itemBlock;
+  }
 
-	/**
-	 * @param block The Block.
-	 * @param name  The Name.
-	 * @return The Block
-	 */
-	private static Block setupBlock(final Block block, final String name) {
-		block.setRegistryName(name);
-		block.setTranslationKey(MODID + "." + name);
-		return block;
-	}
+  /**
+   * @param item The Item.
+   * @param name The Name.
+   * @return The Item.
+   */
+  private static Item setupItem(final Item item, final String name) {
+    //item.setRegistryName(name);
+    item.setRegistryName(MODID, name);
+    item.setUnlocalizedName(MODID + "." + name);
+    LegendaryWinter.LOGGER.debug(
+      "!#!#!#! item registered as " + item.getRegistryName()
+    );
 
-	/**
-	 * @param block The Block.
-	 * @return The ItemBlock.
-	 */
-	private static ItemBlock setupItemBlock(final Block block) {
-		final ItemBlock itemBlock = new ItemBlock(block);
-		final ResourceLocation name = block.getRegistryName();
-		itemBlock.setRegistryName(name);
-		LegendaryWinter.LOGGER.debug("!#!#!#! block registered as " + block.getRegistryName());
+    return item;
+  }
 
-		return itemBlock;
-	}
+  /**
+   * @param ench The Enchantment.
+   * @param name The Name.
+   * @return The Item.
+   */
+  private static Enchantment setupEnchant(
+    final Enchantment ench,
+    final String name
+  ) {
+    ench.setRegistryName(name);
+    LegendaryWinter.LOGGER.debug(
+      "!#!#!#! Enchantment registered as " + ench.getRegistryName()
+    );
 
-	/**
-	 * @param item The Item.
-	 * @param name The Name.
-	 * @return The Item.
-	 */
-	private static Item setupItem(final Item item, final String name) {
-		item.setRegistryName(name);
-		item.setTranslationKey(MODID + "." + name);
-		LegendaryWinter.LOGGER.debug("!#!#!#! item registered as " + item.getRegistryName());
-
-		return item;
-	}
-
-	/**
-	 * @param ench The Enchantment.
-	 * @param name The Name.
-	 * @return The Item.
-	 */
-	private static Enchantment setupEnchant(final Enchantment ench, final String name) {
-		ench.setRegistryName(name);
-		LegendaryWinter.LOGGER.debug("!#!#!#! Enchantment registered as " + ench.getRegistryName());
-
-		return ench;
-	}
-
+    return ench;
+  }
 }
