@@ -20,6 +20,6 @@ public class PolariumLeggings extends ItemArmor {
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 		int xpLevel = player.experienceLevel;
 		float jumpHeight = player.stepHeight;
-		player.stepHeight = jumpHeight + (xpLevel / 5);
+		player.stepHeight = 1.0F;
 	}
 }
